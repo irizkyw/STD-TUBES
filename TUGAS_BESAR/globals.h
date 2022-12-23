@@ -58,12 +58,10 @@ static void category(int &select, bool &stat) {
 	std::cin >> select;
 	if (select == 1 || select == 2) stat = true;
 }
-
 static void menu_armada() {
 	system("cls");
 	std::vector<std::string> menu = {
-		{"Tambah Armada"}, {"Hapus Armada"},
-		{"Hapus Armada By Kode"}, {"Tampilkan Armada dengan list barang"}
+		{"Tambah Armada"}, {"Hapus Armada By Kode"}, {"Tampilkan semua Armada dan list barang dari cargo"}, {"Cari Aramada dan tampilkan list barang dari cargo"}, {"Tampilkan Armada dengan barang paling banyak & paling sedikit"}
 	};
 
 	gotoxy(1, 1);
@@ -72,25 +70,24 @@ static void menu_armada() {
 		gotoxy(3, 2 + i);
 		std::cout << i + 1 << "> " << menu[i];
 	}
-	gotoxy(3, 5);
+	gotoxy(3, 7);
 	std::cout << 9 << "> " << "Kembali Ke Kategori";
-	gotoxy(3, 6);
+	gotoxy(3, 8);
 	std::cout << 0 << "> " << "Exit";
-	gotoxy(1, 7);
+	gotoxy(1, 9);
 	puts("====================================================");
 }
-
 static void addArmada(adrArmada &armada) {
 	adrArmada alloc;
 	int total, done; int i = 1; bool dup = false;
-	gotoxy(0, 9); 
+	gotoxy(0, 10); 
 	std::cout << "Masukan Jumlah Data : ";
 	std::cin >> total;
 	if (total >= 1) {
-		for (i = 1; i <= total; ++i) {
+		for (i = 1; i <= total;) {
 			system("cls");
 			menu_armada();
-			gotoxy(1, 11+i);
+			gotoxy(1, 12+i);
 			if (dup) {
 				std::cout << "================ KODE DUPLIKAT SILAHKAN INPUT ULANG ================" << std::endl;
 			}
@@ -114,18 +111,19 @@ static void addArmada(adrArmada &armada) {
 			std::cout << "Kapasitas Maksimal(KG) : ";
 			std::cin >> data.max_capacity;
 			data.capacity = 0;
-			if (findArmadaByID(armada, data) == NULL)
+			if (findArmadaByID(armada, data) == NULL) {
+				++i;
 				insertLast(armada, allocArmada(data));
+				dup = false;
+			}
 			else {
-				total++;
 				dup = true;
 			}
 		}
 	} else puts("Total yang kamu masukan kurang dari 1");
 }
-
 static void deleteById(adrArmada& armada) {
-	Armada data;
+	Armada data; int pause = 0;
 	showAllArmada(armada);
 	if (armada != NULL) {
 		std::cout << "\nHapus data dengan Kode :";
@@ -138,5 +136,37 @@ static void deleteById(adrArmada& armada) {
 			if (del != NULL) std::cout << "Data Berhasil di hapus dengan ID : " << del->info.id << std::endl;
 		}
 		else std::cout << "Data tidak ditemukan dengan ID : " << data.id << std::endl;
+	}
+}
+static void findAndShow(adrArmada Larmada) {
+	adrArmada current;
+	adrCargo list_barang;
+	Armada data;
+	int select_find = 0;
+	std::cout << " [1]Search Kode; [2]Search nama; [3]Search tanggal;" << std::endl;
+	std::cout << "Search dengan: ";
+	std::cin >> select_find;
+	switch (select_find) {
+	case 1:
+		showAllArmada(Larmada);
+		if (Larmada != NULL) {
+			std::cout << " Search Kode : ";
+			std::cin >> data.id;
+		}
+		break;
+	case 2:
+		showAllArmada(Larmada);
+		if (Larmada != NULL) {
+			std::cout << " Search nama kendaraan : ";
+			std::cin >> data.nama_armada;
+		}
+		break;
+	case 3:
+		showAllArmada(Larmada);
+		if (Larmada != NULL) {
+			std::cout << " Search tanggal : ";
+			std::cin >> data.tanggal;
+		}
+		break;
 	}
 }

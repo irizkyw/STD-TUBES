@@ -71,10 +71,12 @@ void deleteAfter(adrArmada& Larmada, adrArmada Prec, adrArmada& del) {
 			del = current->next;
 			current->next = del->next;
 			del->next = NULL;
+			del->cargo = NULL; 
 		}
 	}
 	else std::cout << "[ERROR] List Armada Kosong!!" << std::endl;
 }
+
 adrArmada findArmadaByID(adrArmada Larmada, Armada search) {
 	adrArmada current;
 	if (Larmada != NULL) {
@@ -84,8 +86,10 @@ adrArmada findArmadaByID(adrArmada Larmada, Armada search) {
 	}
 	else return NULL;
 }
+
 void countAllChild(adrArmada Larmada) {
 	int total, temp; adrArmada current; adrCargo child;
+	total = 0;
 	if (Larmada != NULL) {
 		current = Larmada;
 		while (current != NULL) {
@@ -95,7 +99,6 @@ void countAllChild(adrArmada Larmada) {
 				temp++;
 				child = child->next;
 			}
-			if (temp < total) temp = total;
 			current = current->next;
 		}
 	}

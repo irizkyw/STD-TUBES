@@ -30,9 +30,16 @@ int main()
 			case 2:
 				deleteById(armada);
 				cin >> pause;
+				puts("\n\nHapus Data Selesai [Press 0 - 9] Untuk kembali ke menu");
+				break;
+			case 3:
+				showAllArmada(armada);
+				puts("\n\Show Data Selesai [Press 0 - 9] Untuk kembali ke menu");
+				cin >> pause;
 				break;
 			case 4:
-				showAllArmada(armada);
+				findAndShow(armada);
+				puts("\n\nCari Data Selesai [Press 0 - 9] Untuk kembali ke menu");
 				cin >> pause;
 				break;
 			case 9:

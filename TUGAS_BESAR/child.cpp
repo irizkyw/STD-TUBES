@@ -44,7 +44,7 @@ void deleteFirstChild(adrCargo& Lcargo, adrCargo& P) {
 		Lcargo = Lcargo->next;
 		P->next = NULL;
 	}
-	else std::cout << "[ERROR] List Armada Kosong!!" << std::endl;
+	else std::cout << "[ERROR] List Cargo Kosong!!" << std::endl;
 }
 
 void deleteLastChild(adrCargo& Lcargo, adrCargo& del) {
@@ -58,12 +58,13 @@ void deleteLastChild(adrCargo& Lcargo, adrCargo& del) {
 			current->next = NULL;
 		}
 	}
-	else std::cout << "[ERROR] List Armada Kosong!!" << std::endl;
+	else std::cout << "[ERROR] List Cargo Kosong!!" << std::endl;
 }
 void deleteAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo& del) {
 	adrCargo current;
 	if (Lcargo != NULL) {
-		if (Lcargo->next == NULL) deleteFirstChild(Lcargo, del);
+		if (Prec->next == NULL) deleteLastChild(Lcargo, del);
+		else if (Prec == Lcargo) deleteFirstChild(Lcargo,del);
 		else {
 			current = Lcargo;
 			while (current != Prec) current = current->next;
@@ -72,7 +73,7 @@ void deleteAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo& del) {
 			del->next = NULL;
 		}
 	}
-	else std::cout << "[ERROR] List Armada Kosong!!" << std::endl;
+	else std::cout << "[ERROR] List Cargo Kosong!!" << std::endl;
 }
 
 adrCargo findChildByID(adrCargo Lcargo, Cargo search) {
