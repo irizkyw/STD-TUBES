@@ -264,6 +264,80 @@ static void findAndShow(adrArmada Larmada) {
 
 // Cargo , Mahen
 
-static void addBarang();
-static void findbarang();
+static void menu_cargo() {
+	system("cls");
+	std::vector<std::string> menu = {
+		{"Tambah Cargo"}, {"Hapus Cargo By Kode"}, {"Cari Cargo dan Tampilkan Spesifikasi Barangnya"}, {"Tampilkan Cargo dengan Volume paling berat & paling ringan"}
+	};
 
+	gotoxy(1, 1);
+	puts("=================== PILIH MENU! ===================");
+	for (int i = 0; i < menu.size(); ++i) {
+		gotoxy(3, 2 + i);
+		std::cout << i + 1 << "> " << menu[i];
+	}
+	gotoxy(3, 7);
+	std::cout << 9 << "> " << "Kembali Ke Kategori";
+	gotoxy(3, 8);
+	std::cout << 0 << "> " << "Exit";
+	gotoxy(1, 9);
+	puts("====================================================");
+}
+static void addCargo(adrCargo& cargo) {
+	adrCargo alloc;
+	int total, done; int i = 1; bool dup = false;
+	gotoxy(0, 10);
+	std::cout << "Masukan Jumlah Data : ";
+	std::cin >> total;
+	if (total >= 1) {
+		for (i = 1; i <= total;) {
+			system("cls");
+			menu_cargo();
+			gotoxy(1, 12 + i);
+			if (dup) std::cout << "================ KODE DUPLIKAT SILAHKAN INPUT ULANG ================" << std::endl;
+			else std::cout << "================ MASUKAN DATA KE-" << i << " ================" << std::endl;
+			Cargo newdata;
+			std::cout << "Kode Barang : ";
+			std::cin >> newdata.id_barang;
+			std::cout << "Nama Barang : ";
+			std::cin >> newdata.nama_barang;
+			std::cout << "Volume Barang : ";
+			std::cin >> newdata.volume_barang;
+			if (findChildByID(cargo, newdata) == NULL) {
+				++i;
+				insertLastChild(cargo, allocCargo(newdata));
+				dup = false;
+			}
+			else {
+				dup = true;
+			}
+		}
+	}
+	else puts("Total yang kamu masukan kurang dari 1");
+}
+static void deleteByIdChild(adrCargo& cargo) {
+	adrArmada armada, temp;
+	adrCargo current;
+	Cargo newdata; int pause = 0;
+	showAllCargo(armada, cargo);
+	temp = armada;
+	while (temp != NULL) {
+		current = temp->cargo;
+		if (current != NULL) {
+			std::cout << "\nHapus data dengan Kode :";
+			std::cin >> newdata.id_barang;
+			adrCargo del;
+			adrCargo searchCargo;
+			searchCargo = findChildByID(cargo, newdata);
+			if (searchCargo != NULL){
+				deleteAfterChild(cargo, searchCargo, del);
+				if (del != NULL) {
+					std:: cout << "Data Berhasil dihapus dengan ID : " << del->info.id_barang << std::endl;
+				}
+			} else {
+				std::cout << "Data tidak ditemukan dengan ID : " << newdata.id_barang << std::endl;
+			}
+		}
+		current = current->next;
+	}
+}

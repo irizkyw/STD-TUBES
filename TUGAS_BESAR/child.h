@@ -19,3 +19,5 @@ void deleteLastChild(adrCargo& Larmada, adrCargo& del);
 void deleteAfterChild(adrCargo& Larmada, adrCargo Prec, adrCargo& P);
 
 adrCargo findChildByID(adrCargo Larmada, Cargo search);
+
+void showAllCargo(adrArmada Larmada, adrCargo Lcargo);
