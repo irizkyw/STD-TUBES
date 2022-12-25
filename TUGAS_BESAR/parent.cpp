@@ -76,7 +76,6 @@ void deleteAfter(adrArmada& Larmada, adrArmada Prec, adrArmada& del) {
 	}
 	else std::cout << "[ERROR] List Armada Kosong!!" << std::endl;
 }
-
 adrArmada findArmadaByID(adrArmada Larmada, Armada search) {
 	adrArmada current;
 	if (Larmada != NULL) {
@@ -86,7 +85,6 @@ adrArmada findArmadaByID(adrArmada Larmada, Armada search) {
 	}
 	else return NULL;
 }
-
 void countAllChild(adrArmada Larmada) {
 	int total, temp; adrArmada current; adrCargo child;
 	total = 0;
@@ -104,8 +102,8 @@ void countAllChild(adrArmada Larmada) {
 	}
 	else std::cout << "[ERROR] List Armada Kosong!!" << std::endl;
 }
-int countMinimumChild(adrArmada Larmada) {
-	int total,temp; adrArmada current; adrCargo child;
+int countMinimumChild(adrArmada Larmada, Armada& data_armada) {
+	int total = 0; int temp; adrArmada current; adrCargo child;
 	if (Larmada != NULL) {
 		current = Larmada;
 		while (current != NULL) {
@@ -115,15 +113,18 @@ int countMinimumChild(adrArmada Larmada) {
 				temp++;
 				child = child->next;
 			}
-			if (temp < total) temp = total;
+			if (temp > total) {
+				data_armada = current->info;
+				temp = total;
+			}
 			current = current->next;
 		}
 		return total;
 	}
 	else return -1;
 }
-int countMaximumChild(adrArmada Larmada) {
-	int total, temp; adrArmada current; adrCargo child;
+int countMaximumChild(adrArmada Larmada, Armada& data_armada) {
+	int total = 0; int temp; adrArmada current; adrCargo child;
 	if (Larmada != NULL) {
 		current = Larmada;
 		while (current != NULL) {
@@ -133,14 +134,17 @@ int countMaximumChild(adrArmada Larmada) {
 				temp++;
 				child = child->next;
 			}
-			if (temp > total) temp = total;
+			if (temp > total) {
+				data_armada = current->info;
+				temp = total;
+			}
 			current = current->next;
 		}
 		return total;
 	}
 	else return -1;
 }
-void showAllArmada(adrArmada Larmada) {
+void showAllArmada(adrArmada Larmada,bool showAll) {
 	adrArmada current; int i = 0;
 	system("cls");
 	if (Larmada == NULL) cout << "Armada Kosong" << endl;
@@ -151,13 +155,14 @@ void showAllArmada(adrArmada Larmada) {
 		while (current != NULL) {
 			cout << " >\tKode Armada\t: " << current->info.id << endl;
 			cout << " \tNama Armada\t: " << current->info.nama_armada << endl;
-			cout << " \tJenis Armada\t: " << current->info.jenis_armada << endl;
-			cout << " \tArmada Asal\t: " << current->info.asal << endl;
-			cout << " \tArmada Tujuan\t: " << current->info.tujuan << endl;
-			cout << " \tTgl Berangkat\t: " << current->info.tanggal << endl;
-			cout << " \tWaktu Berangkat\t: " << current->info.waktu << endl << endl;
-			cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << endl;
-			cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << endl << endl;
+			if (showAll) cout << " \tJenis Armada\t: " << current->info.jenis_armada << endl;
+			if (showAll) cout << " \tArmada Asal\t: " << current->info.asal << endl;
+			if (showAll == false) cout << " \tArmada Tujuan\t: " << current->info.tujuan << endl;
+			if (showAll == false) cout << " \tJadwal Berangkat: " << current->info.jadwal << endl;
+			if (showAll) cout << " \tWaktu Berangkat\t: " << current->info.waktu << endl << endl;
+			if (showAll) cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << endl;
+			if (showAll) cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << endl << endl;
+			if (showAll == false) cout << endl;
 			current = current->next;
 			i++;
 		}

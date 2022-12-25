@@ -6,7 +6,6 @@ adrCargo allocCargo(Cargo data) {
 	alloc->next = NULL;
 	return alloc;
 }
-
 void insertFirstChild(adrCargo& Lcargo, adrCargo data_baru) {
 	if (Lcargo == NULL)
 		Lcargo = data_baru;
@@ -15,7 +14,6 @@ void insertFirstChild(adrCargo& Lcargo, adrCargo data_baru) {
 		Lcargo = data_baru;
 	}
 }
-
 void insertAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo data_baru) {
 	adrCargo current;
 	if (Lcargo == NULL) insertFirstChild(Lcargo, data_baru);
@@ -26,7 +24,6 @@ void insertAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo data_baru) {
 		current->next = data_baru;
 	}
 }
-
 void insertLastChild(adrCargo& Lcargo, adrCargo data_baru) {
 	adrCargo current;
 	if (Lcargo == NULL)
@@ -37,7 +34,6 @@ void insertLastChild(adrCargo& Lcargo, adrCargo data_baru) {
 		current->next = data_baru;
 	}
 }
-
 void deleteFirstChild(adrCargo& Lcargo, adrCargo& P) {
 	if (Lcargo != NULL) {
 		P = Lcargo;
@@ -46,7 +42,6 @@ void deleteFirstChild(adrCargo& Lcargo, adrCargo& P) {
 	}
 	else std::cout << "[ERROR] List Cargo Kosong!!" << std::endl;
 }
-
 void deleteLastChild(adrCargo& Lcargo, adrCargo& del) {
 	adrCargo current;
 	if (Lcargo != NULL) {
@@ -75,7 +70,6 @@ void deleteAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo& del) {
 	}
 	else std::cout << "[ERROR] List Cargo Kosong!!" << std::endl;
 }
-
 adrCargo findChildByID(adrCargo Lcargo, Cargo search) {
 	adrCargo current;
 	if (Lcargo != NULL) {

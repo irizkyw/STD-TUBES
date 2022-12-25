@@ -1,32 +1,15 @@
-﻿  child.cpp
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(29,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(47,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(69,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(81,12): warning C4101: 'alloc': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(82,13): warning C4101: 'done': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(142,12): warning C4101: 'current': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(143,11): warning C4101: 'list_barang': unreferenced local variable
-  parent.cpp
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(29,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(47,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(69,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(81,12): warning C4101: 'alloc': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(82,13): warning C4101: 'done': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(142,12): warning C4101: 'current': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(143,11): warning C4101: 'list_barang': unreferenced local variable
-  TUGAS_BESAR.cpp
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(29,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(47,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(69,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(81,12): warning C4101: 'alloc': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(82,13): warning C4101: 'done': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(142,12): warning C4101: 'current': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(143,11): warning C4101: 'list_barang': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\TUGAS_BESAR.cpp(37,10): warning C4129: 'S': unrecognized character escape sequence
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\TUGAS_BESAR.cpp(49,5): warning C4551: function call missing argument list
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\TUGAS_BESAR.cpp(67,5): warning C4551: function call missing argument list
+﻿  TUGAS_BESAR.cpp
+C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(30,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(57,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(79,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(91,12): warning C4101: 'alloc': unreferenced local variable
+C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(92,13): warning C4101: 'done': unreferenced local variable
+C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(154,11): warning C4101: 'list_barang': unreferenced local variable
+C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\TUGAS_BESAR.cpp(40,10): warning C4129: 'S': unrecognized character escape sequence
+C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\TUGAS_BESAR.cpp(60,5): warning C4551: function call missing argument list
+C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\TUGAS_BESAR.cpp(78,5): warning C4551: function call missing argument list
   Generating code
-  2 of 192 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+  1 of 231 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

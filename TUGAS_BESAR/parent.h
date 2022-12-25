@@ -2,7 +2,8 @@
 
 typedef struct element_armada* adrArmada;
 struct Armada {
-	std::string id, nama_armada, jenis_armada, asal, tujuan, tanggal, waktu;
+	std::string id, nama_armada, jenis_armada, asal, tujuan, jadwal, waktu;
+	int tanggal, bulan, tahun;
 	float capacity, max_capacity;
 };
 
@@ -25,7 +26,7 @@ void deleteAfter(adrArmada& Larmada, adrArmada Prec, adrArmada& P);
 
 adrArmada findArmadaByID(adrArmada Larmada, Armada search);
 void countAllChild(adrArmada Larmada);
-int countMinimumChild(adrArmada Larmada);
-int countMaximumChild(adrArmada Larmada);
+int countMinimumChild(adrArmada Larmada, Armada& data);
+int countMaximumChild(adrArmada Larmada, Armada& data);
 
-void showAllArmada(adrArmada Larmada);
+void showAllArmada(adrArmada Larmada, bool showAll);
