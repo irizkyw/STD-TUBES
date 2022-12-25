@@ -5,6 +5,9 @@
 #include <conio.h>
 #include "parent.h"
 
+static std::vector<std::string> menu = {
+		{"Tambah Armada"}, {"Hapus Armada By Kode"}, {"Tampilkan semua Armada dan list barang dari cargo"}, {"Cari Aramada dan tampilkan list barang dari cargo"}, {"Tampilkan Armada dengan barang paling banyak & paling sedikit"}
+};
 static void color(int color) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
@@ -71,27 +74,23 @@ static void category(int &select, bool &stat) {
 // Armada
 static void menu_armada() {
 	system("cls");
-	std::vector<std::string> menu = {
-		{"Tambah Armada"}, {"Hapus Armada By Kode"}, {"Tampilkan semua Armada dan list barang dari cargo"}, {"Cari Aramada dan tampilkan list barang dari cargo"}, {"Tampilkan Armada dengan barang paling banyak & paling sedikit"}
-	};
-
 	gotoxy(1, 1);
 	puts("=================== PILIH MENU! ===================");
 	for (int i = 0; i < menu.size(); ++i) {
 		gotoxy(3, 2 + i);
 		std::cout << i + 1 << "> " << menu[i];
 	}
-	gotoxy(3, 7);
+	gotoxy(3, menu.size() + 2);
 	std::cout << 9 << "> " << "Kembali Ke Kategori";
-	gotoxy(3, 8);
+	gotoxy(3, menu.size() + 3);
 	std::cout << 0 << "> " << "Exit";
-	gotoxy(1, 9);
+	gotoxy(1, menu.size() + 4);
 	puts("====================================================");
 }
 static void addArmada(adrArmada &armada) {
 	adrArmada alloc;
 	int total, done; int i = 1; bool dup = false;
-	gotoxy(0, 10); 
+	gotoxy(0, menu.size() + 5); 
 	std::cout << "Masukan Jumlah Data : ";
 	std::cin >> total;
 	if (total >= 1) {
@@ -264,4 +263,3 @@ static void findAndShow(adrArmada Larmada) {
 // Cargo , Mahen
 static void addBarang(adrCargo& cargo);
 static void findbarang(adrCargo& cargo);
-
