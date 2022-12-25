@@ -264,3 +264,5 @@ static void findAndShow(adrArmada Larmada) {
 
 // Cargo , Mahen
 
+static void addBarang();
+
