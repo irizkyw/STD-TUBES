@@ -137,8 +137,7 @@ static void deleteById(adrArmada& armada) {
 	if (armada != NULL) {
 		std::cout << "\nHapus data dengan Kode :";
 		std::cin >> data.id;
-		adrArmada del;
-		adrArmada searchArmada;
+		adrArmada del, searchArmada;
 		searchArmada = findArmadaByID(armada, data);
 		if (searchArmada != NULL) {
 			deleteAfter(armada, searchArmada, del);
@@ -263,7 +262,6 @@ static void findAndShow(adrArmada Larmada) {
 }
 
 // Cargo , Mahen
-
-static void addBarang();
-static void findbarang();
+static void addBarang(adrCargo& cargo);
+static void findbarang(adrCargo& cargo);
 

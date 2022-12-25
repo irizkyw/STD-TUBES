@@ -1,30 +1,13 @@
-﻿  TUGAS_BESAR.cpp
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(30,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(56,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(79,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(91,12): warning C4101: 'alloc': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(92,13): warning C4101: 'done': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(151,11): warning C4101: 'list_barang': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\TUGAS_BESAR.cpp(40,10): warning C4129: 'S': unrecognized character escape sequence
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\TUGAS_BESAR.cpp(60,5): warning C4551: function call missing argument list
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\TUGAS_BESAR.cpp(78,5): warning C4551: function call missing argument list
-  child.cpp
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(30,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(56,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(79,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(91,12): warning C4101: 'alloc': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(92,13): warning C4101: 'done': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(151,11): warning C4101: 'list_barang': unreferenced local variable
-  parent.cpp
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(30,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(56,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(79,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(91,12): warning C4101: 'alloc': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(92,13): warning C4101: 'done': unreferenced local variable
-C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\TUGAS_BESAR\globals.h(151,11): warning C4101: 'list_barang': unreferenced local variable
+﻿  child.cpp
+C:\Users\Ichwan Rizky Wahyudi\Desktop\TUBES\STD-TUBES\TUGAS_BESAR\globals.h(30,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ichwan Rizky Wahyudi\Desktop\TUBES\STD-TUBES\TUGAS_BESAR\globals.h(56,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ichwan Rizky Wahyudi\Desktop\TUBES\STD-TUBES\TUGAS_BESAR\globals.h(80,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Ichwan Rizky Wahyudi\Desktop\TUBES\STD-TUBES\TUGAS_BESAR\globals.h(92,12): warning C4101: 'alloc': unreferenced local variable
+C:\Users\Ichwan Rizky Wahyudi\Desktop\TUBES\STD-TUBES\TUGAS_BESAR\globals.h(93,13): warning C4101: 'done': unreferenced local variable
+C:\Users\Ichwan Rizky Wahyudi\Desktop\TUBES\STD-TUBES\TUGAS_BESAR\globals.h(151,11): warning C4101: 'list_barang': unreferenced local variable
   Generating code
-  1 of 231 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+  224 of 231 functions (97.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  TUGAS_BESAR.vcxproj -> C:\Users\Ichwan Rizky Wahyudi\source\repos\TUGAS_BESAR\Release\TUGAS_BESAR.exe
+  TUGAS_BESAR.vcxproj -> C:\Users\Ichwan Rizky Wahyudi\Desktop\TUBES\STD-TUBES\Release\TUGAS_BESAR.exe
