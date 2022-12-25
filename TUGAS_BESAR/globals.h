@@ -36,7 +36,6 @@ static void mahasiswa() {
 	gotoxy(45, 23);
 	puts("PRESS ENTER UNTUK MASUK");
 }
-
 static void dummy(adrArmada& Larmada) {
 	Armada data;
 	data.id = "A001"; data.nama_armada = "Armada1"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 1; data.bulan = 1; data.tahun = 2020; data.jadwal = "01/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
@@ -68,6 +67,8 @@ static void category(int &select, bool &stat) {
 	std::cin >> select;
 	if (select == 1 || select == 2) stat = true;
 }
+
+// Armada
 static void menu_armada() {
 	system("cls");
 	std::vector<std::string> menu = {
@@ -98,11 +99,8 @@ static void addArmada(adrArmada &armada) {
 			system("cls");
 			menu_armada();
 			gotoxy(1, 12+i);
-			if (dup) {
-				std::cout << "================ KODE DUPLIKAT SILAHKAN INPUT ULANG ================" << std::endl;
-			}
-			else
-				std::cout << "================ MASUKAN DATA KE-" << i <<" ================" << std::endl;
+			if (dup) std::cout << "================ KODE DUPLIKAT SILAHKAN INPUT ULANG ================" << std::endl;
+			else std::cout << "================ MASUKAN DATA KE-" << i <<" ================" << std::endl;
 			Armada data;
 			std::cout << "Kode Armada : ";
 			std::cin >> data.id;
@@ -175,6 +173,10 @@ static void findAndShow(adrArmada Larmada) {
 				std::cout << " \tWaktu Berangkat\t: " << search->info.waktu << std::endl << std::endl;
 				std::cout << " \tMax Kapasitas\t: " << search->info.max_capacity << " KG" << std::endl;
 				std::cout << " \tTotal Kapasitas\t: " << search->info.capacity << " KG" << std::endl << std::endl;
+				int i = 1;
+				for (adrCargo child = search->cargo; child != NULL; child = child->next) {
+					if (i % 2 != 0) std::cout << std::endl;
+				}
 				std::cout << "==================== EndSearch ====================" << std::endl;
 			}
 			else std::cout << data.id << " Tidak ditemukan!!" << std::endl;
@@ -259,3 +261,6 @@ static void findAndShow(adrArmada Larmada) {
 		break;
 	}
 }
+
+// Cargo
+
