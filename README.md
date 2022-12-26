@@ -4,7 +4,7 @@ Tugas ini adalah Tugas akhir matakuliah Struktur data dengan materi Multi Linked
 
 ## Usage
 
-- Buka .sln dengan visual studio 2019/2022
+- Buka ```TUGAS_BESAR.sln``` dengan Visual Studio 2019/2022
 
 ## Contributing[KELOMPOK]
 
