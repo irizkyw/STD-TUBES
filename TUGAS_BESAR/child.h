@@ -11,13 +11,11 @@ struct element_cargo {
 };
 
 adrCargo allocCargo(Cargo data);
-void insertFirstChild(adrCargo& Larmada, adrCargo data_baru);
-void insertAfterChild(adrCargo& Larmada, adrCargo Prec, adrCargo P);
-void insertLastChild(adrCargo& Larmada, adrCargo P);
-void deleteFirstChild(adrCargo& Larmada, adrCargo& P);
-void deleteLastChild(adrCargo& Larmada, adrCargo& del);
-void deleteAfterChild(adrCargo& Larmada, adrCargo Prec, adrCargo& P);
+void insertFirstChild(adrCargo& Lcargo, adrCargo data_baru);
+void insertAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo data_baru);
+void insertLastChild(adrCargo& Lcargo, adrCargo data_baru);
+void deleteFirstChild(adrCargo& Lcargo, adrCargo& P);
+void deleteLastChild(adrCargo& Lcargo, adrCargo& del);
+void deleteAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo& del);
 
-adrCargo findChildByID(adrCargo Larmada, Cargo search);
-
-void showAllCargo(adrArmada Larmada, adrCargo Lcargo);
+adrCargo findChildByID(adrCargo Lcargo, Cargo search);

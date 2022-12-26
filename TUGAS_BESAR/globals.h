@@ -5,6 +5,9 @@
 #include <conio.h>
 #include "parent.h"
 
+static std::vector<std::string> menu = {
+		{"Tambah Armada"}, {"Hapus Armada By Kode"}, {"Tampilkan semua Armada dan list barang dari cargo"}, {"Cari Aramada dan tampilkan list barang dari cargo"}, {"Tampilkan Armada dengan barang paling banyak & paling sedikit"}
+};
 static void color(int color) {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
 }
@@ -71,27 +74,23 @@ static void category(int &select, bool &stat) {
 // Armada
 static void menu_armada() {
 	system("cls");
-	std::vector<std::string> menu = {
-		{"Tambah Armada"}, {"Hapus Armada By Kode"}, {"Tampilkan semua Armada dan list barang dari cargo"}, {"Cari Aramada dan tampilkan list barang dari cargo"}, {"Tampilkan Armada dengan barang paling banyak & paling sedikit"}
-	};
-
 	gotoxy(1, 1);
 	puts("=================== PILIH MENU! ===================");
 	for (int i = 0; i < menu.size(); ++i) {
 		gotoxy(3, 2 + i);
 		std::cout << i + 1 << "> " << menu[i];
 	}
-	gotoxy(3, 7);
+	gotoxy(3, menu.size() + 2);
 	std::cout << 9 << "> " << "Kembali Ke Kategori";
-	gotoxy(3, 8);
+	gotoxy(3, menu.size() + 3);
 	std::cout << 0 << "> " << "Exit";
-	gotoxy(1, 9);
+	gotoxy(1, menu.size() + 4);
 	puts("====================================================");
 }
 static void addArmada(adrArmada &armada) {
 	adrArmada alloc;
 	int total, done; int i = 1; bool dup = false;
-	gotoxy(0, 10); 
+	gotoxy(0, menu.size() + 5); 
 	std::cout << "Masukan Jumlah Data : ";
 	std::cin >> total;
 	if (total >= 1) {
@@ -137,8 +136,7 @@ static void deleteById(adrArmada& armada) {
 	if (armada != NULL) {
 		std::cout << "\nHapus data dengan Kode :";
 		std::cin >> data.id;
-		adrArmada del;
-		adrArmada searchArmada;
+		adrArmada del, searchArmada;
 		searchArmada = findArmadaByID(armada, data);
 		if (searchArmada != NULL) {
 			deleteAfter(armada, searchArmada, del);
@@ -263,11 +261,10 @@ static void findAndShow(adrArmada Larmada) {
 }
 
 // Cargo , Mahen
-
 static void menu_cargo() {
 	system("cls");
 	std::vector<std::string> menu = {
-		{"Tambah Cargo"}, {"Hapus Cargo By Kode"}, {"Cari Cargo dan Tampilkan Spesifikasi Barangnya"}, {"Tampilkan Cargo dengan Volume paling berat & paling ringan"}
+		{"Tambah Cargo"}, {"Hapus Cargo By Kode"}, {"Cari Cargo dan Tampilkan Spesifikasi Barangnya"}
 	};
 
 	gotoxy(1, 1);
@@ -316,28 +313,78 @@ static void addCargo(adrCargo& cargo) {
 	else puts("Total yang kamu masukan kurang dari 1");
 }
 static void deleteByIdChild(adrCargo& cargo) {
-	adrArmada armada, temp;
-	adrCargo current;
 	Cargo newdata; int pause = 0;
-	showAllCargo(armada, cargo);
-	temp = armada;
-	while (temp != NULL) {
-		current = temp->cargo;
-		if (current != NULL) {
-			std::cout << "\nHapus data dengan Kode :";
-			std::cin >> newdata.id_barang;
-			adrCargo del;
-			adrCargo searchCargo;
-			searchCargo = findChildByID(cargo, newdata);
-			if (searchCargo != NULL){
-				deleteAfterChild(cargo, searchCargo, del);
-				if (del != NULL) {
-					std:: cout << "Data Berhasil dihapus dengan ID : " << del->info.id_barang << std::endl;
-				}
-			} else {
-				std::cout << "Data tidak ditemukan dengan ID : " << newdata.id_barang << std::endl;
-			}
+	std::cout << "\nHapus data dengan Kode :";
+	std::cin >> newdata.id_barang;
+	adrCargo del, searchCargo;
+	searchCargo = findChildByID(cargo, newdata);
+	if (searchCargo != NULL) {
+		deleteAfterChild(cargo, searchCargo, del);
+		if (del != NULL) {
+			std::cout << "Data Berhasil dihapus dengan ID : " << del->info.id_barang << std::endl;
 		}
-		current = current->next;
+	}
+	else {
+		std::cout << "Data tidak ditemukan dengan ID : " << newdata.id_barang << std::endl;
 	}
 }
+static void findAndShowChild(adrCargo Lcargo) {
+	adrArmada current, Larmada;
+	adrCargo list_barang, searchCargo;
+	Cargo newdata;
+	int select_find = 0;
+	std::cout << " [1]Search info Kode; [2]Search nama;" << std::endl;
+	std::cout << "Search dengan: ";
+	std::cin >> select_find;
+	switch (select_find) {
+	case 1:
+		showAllArmada(Larmada, false);
+		if (Larmada != NULL) {
+			current = Larmada;
+			std::cout << " Search Kode : ";
+			std::cin >> newdata.id_barang;
+			while (current != NULL) {
+				list_barang = current->cargo;
+				if (list_barang != NULL) {
+					searchCargo = findChildByID(Lcargo, newdata);
+					if (searchCargo != NULL) {
+						std::cout << "================== Search Cargo ==================" << std::endl << std::endl;
+						std::cout << "\tKode Barang\t: " << searchCargo->info.id_barang << std::endl;
+						std::cout << "\tNama Barang\t: " << searchCargo->info.nama_barang << std::endl;
+						std::cout << "\tBerat Barang\t: " << searchCargo->info.volume_barang << std::endl;
+						std::cout << "==================== EndSearch ====================" << std::endl;
+					}
+					else std::cout << newdata.id_barang << " Tidak ditemukan!!" << std::endl;
+				}
+				current = current->next;
+			}
+		}
+		break;
+	case 2:
+		showAllArmada(Larmada, false);
+		if (Larmada != NULL) {
+			current = Larmada;
+			std::cout << " Search Nama Barang : ";
+			std::cin >> newdata.nama_barang;
+			while (current != NULL) {
+				list_barang = current->cargo;
+				while (list_barang != NULL) {
+					if (list_barang->info.nama_barang == newdata.nama_barang) {
+						std::cout << "================== Search Cargo ==================" << std::endl << std::endl;
+						std::cout << "\tKode Barang\t: " << searchCargo->info.id_barang << std::endl;
+						std::cout << "\tNama Barang\t: " << searchCargo->info.nama_barang << std::endl;
+						std::cout << "\tBerat Barang\t: " << searchCargo->info.volume_barang << std::endl;
+						std::cout << "==================== EndSearch ====================" << std::endl;
+					}
+					else {
+						std::cout << newdata.id_barang << " Tidak ditemukan!!" << std::endl;
+					}
+					list_barang = list_barang->next;
+				}
+				current = current->next;
+			}
+		}
+		break;
+	}
+}
+

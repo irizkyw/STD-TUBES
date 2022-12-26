@@ -81,32 +81,3 @@ adrCargo findChildByID(adrCargo Lcargo, Cargo search) {
 	}
 	else return NULL;
 }
-
-void showAllCargo(adrArmada Larmada, adrCargo Lcargo) {
-	adrCargo temp;
-	adrArmada current;
-	int i = 1;
-	system("cls");
-	if (Larmada == NULL) {
-		cout << "Armada Kosong" << endl;
-	} else {
-		current = Larmada;
-		gotoxy(1, 0);
-		cout << "=================== List Cargo ===================" << endl << endl;
-		while (current != NULL) {
-			cout << "\tKode Armada\t: " << current->info.id << endl;
-			cout << "\tCargo yang dimuat\t" << endl;
-			temp = current->cargo;
-			while (temp != NULL) {
-				cout << "\tCargo ke-" << i << endl;
-				cout << "\tKode Barang\t: " << temp->info.id_barang << endl;
-				cout << "\tNama Barang\t: " << temp->info.nama_barang << endl;
-				cout << "\tBerat Barang\t: " << temp->info.volume_barang << " KG" << endl;
-				temp = temp->next;
-				i++;
-			}
-			current = current->next;
-		}
-		cout << "==================== End List! ====================" << endl;
-	}
-}

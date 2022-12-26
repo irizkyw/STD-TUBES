@@ -1,29 +1,40 @@
-﻿  child.cpp
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(30,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(56,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(80,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(92,12): warning C4101: 'alloc': unreferenced local variable
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(93,13): warning C4101: 'done': unreferenced local variable
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(152,11): warning C4101: 'list_barang': unreferenced local variable
+﻿  TUGAS_BESAR.cpp
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(33,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(59,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(79,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(91,12): warning C4101: 'alloc': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(92,13): warning C4101: 'done': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(150,11): warning C4101: 'list_barang': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(272,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(284,11): warning C4101: 'alloc': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(285,13): warning C4101: 'done': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\TUGAS_BESAR.cpp(41,10): warning C4129: 'S': unrecognized character escape sequence
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\TUGAS_BESAR.cpp(76,5): warning C4551: function call missing argument list
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\TUGAS_BESAR.cpp(94,5): warning C4551: function call missing argument list
+  child.cpp
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(33,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(59,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(79,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(91,12): warning C4101: 'alloc': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(92,13): warning C4101: 'done': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(150,11): warning C4101: 'list_barang': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(272,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(284,11): warning C4101: 'alloc': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(285,13): warning C4101: 'done': unreferenced local variable
   parent.cpp
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(30,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(56,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(80,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(92,12): warning C4101: 'alloc': unreferenced local variable
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(93,13): warning C4101: 'done': unreferenced local variable
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(152,11): warning C4101: 'list_barang': unreferenced local variable
-  TUGAS_BESAR.cpp
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(30,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(56,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(80,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(92,12): warning C4101: 'alloc': unreferenced local variable
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(93,13): warning C4101: 'done': unreferenced local variable
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(152,11): warning C4101: 'list_barang': unreferenced local variable
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\TUGAS_BESAR.cpp(40,10): warning C4129: 'S': unrecognized character escape sequence
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\TUGAS_BESAR.cpp(60,5): warning C4551: function call missing argument list
-C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\TUGAS_BESAR.cpp(78,5): warning C4551: function call missing argument list
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(33,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(59,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(79,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(91,12): warning C4101: 'alloc': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(92,13): warning C4101: 'done': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(150,11): warning C4101: 'list_barang': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(272,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(284,11): warning C4101: 'alloc': unreferenced local variable
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(285,13): warning C4101: 'done': unreferenced local variable
   Generating code
-  Previous IPDB was built with incompatible compiler, fall back to full compilation.
-  All 233 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  TUGAS_BESAR.vcxproj -> C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\Release\TUGAS_BESAR.exe
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(341): error C4700: uninitialized local variable 'Larmada' used
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\globals.h(374): error C4700: uninitialized local variable 'searchCargo' used
+C:\Users\ASUS\OneDrive\Desktop\Tubes\STD-TUBES\TUGAS_BESAR\TUGAS_BESAR.cpp(68): error C4703: potentially uninitialized local pointer variable 'cargo' used
+  All 254 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+LINK : fatal error LNK1257: code generation failed

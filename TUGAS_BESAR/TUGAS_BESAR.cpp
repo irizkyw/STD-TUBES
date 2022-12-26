@@ -9,6 +9,7 @@ using namespace std;
 int main()
 {
 	adrArmada armada;
+	adrCargo cargo;
 	Armada max_data, min_data;
 	int min, max;
 	init(armada);
@@ -50,6 +51,21 @@ int main()
 				min = countMinimumChild(armada, min_data);
 				cout << "Data paling banyak adalah " << max << " Dengan Kode Armada" << max_data.id << endl;
 				cout << "Data paling sedikit adalah " << max << " Dengan Kode Armada" << max_data.id << endl;
+				puts("\n\nCari Data Selesai [Press 0 - 9] Untuk kembali ke menu");
+				cin >> pause;
+				break;
+			case 6:
+				addCargo(cargo);
+				puts("\n\nPenambahan Data Selesai [Press 0 - 9] Untuk kembali ke menu");
+				cin >> pause;
+				break;
+			case 7:
+				deleteByIdChild(cargo);
+				cin >> pause;
+				puts("\n\nHapus Data Selesai [Press 0 - 9] Untuk kembali ke menu");
+				break;
+			case 8:
+				findAndShowChild(cargo);
 				puts("\n\nCari Data Selesai [Press 0 - 9] Untuk kembali ke menu");
 				cin >> pause;
 				break;
