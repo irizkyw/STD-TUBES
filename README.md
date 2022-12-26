@@ -1,12 +1,12 @@
 # Tugas Besar Struktur Data
 
-Tugas ini adalah tugas besar untuk mata kuliah Struktur data pada ajaran tahun 21/22
+Tugas ini adalah Tugas akhir matakuliah Struktur data dengan materi Multi Linked List(M to N) dengan tema Cargo.
 
 ## Usage
 
 - Buka .sln dengan visual studio 2019/2022
 
-## Contributing
+## Contributing[KELOMPOK]
 
 ```
 Dalam Projek ini yang berkontribusi adalah
