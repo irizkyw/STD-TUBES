@@ -10,5 +10,5 @@ Tugas ini adalah Tugas akhir matakuliah Struktur data dengan materi Multi Linked
 Dalam Projek ini yang berkontribusi adalah
 ```
 Bagian Parent(Armada)     :  Ichwan Rizky Wahyudin - 1301213434
-Bagian Child(List Barang) :  Wahyu Nata Mahendra - NIM
+Bagian Child(List Barang) :  Wahyu Nata Mahendra - 1301213101
 ```
