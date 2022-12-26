@@ -23,7 +23,7 @@ static void gotoxy(int x, int y) {
 static void mahasiswa() {
 	system("cls");
 	std::vector<std::string> mahasiswa = {
-		{"Ichwan Rizky Wahyudin - 1301213434"}, {"Wahyu Nata Mahendra - 1301213434"}
+		{"Ichwan Rizky Wahyudin - 1301213434"}, {"Wahyu Nata Mahendra - 1301213101"}
 	};
 
 	gotoxy(30, 10);
@@ -132,7 +132,7 @@ static void addArmada(adrArmada &armada) {
 }
 static void deleteById(adrArmada& armada) {
 	Armada data; int pause = 0;
-	showAllArmada(armada,false);
+	showAllArmada(armada,false,false);
 	if (armada != NULL) {
 		std::cout << "\nHapus data dengan Kode :";
 		std::cin >> data.id;
@@ -147,7 +147,7 @@ static void deleteById(adrArmada& armada) {
 }
 static void findAndShow(adrArmada Larmada) {
 	adrArmada current,search;
-	adrCargo list_barang;
+	adrCargo child;
 	Armada data;
 	int select_find = 0;
 	std::cout << " [1]Search info Kode; [2]Search nama; [3]Search info range jadwal; [4] Search info tujuan;" << std::endl;
@@ -155,7 +155,7 @@ static void findAndShow(adrArmada Larmada) {
 	std::cin >> select_find;
 	switch (select_find) {
 	case 1:
-		showAllArmada(Larmada,false);
+		showAllArmada(Larmada,false,false);
 		if (Larmada != NULL) {
 			std::cout << " Search Kode : ";
 			std::cin >> data.id;
@@ -171,9 +171,11 @@ static void findAndShow(adrArmada Larmada) {
 				std::cout << " \tWaktu Berangkat\t: " << search->info.waktu << std::endl << std::endl;
 				std::cout << " \tMax Kapasitas\t: " << search->info.max_capacity << " KG" << std::endl;
 				std::cout << " \tTotal Kapasitas\t: " << search->info.capacity << " KG" << std::endl << std::endl;
-				int i = 1;
-				for (adrCargo child = search->cargo; child != NULL; child = child->next) {
-					if (i % 2 != 0) std::cout << std::endl;
+				child = search->cargo;
+				while (child != NULL) {
+					std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
+					std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;
+					child = child->next;
 				}
 				std::cout << "==================== EndSearch ====================" << std::endl;
 			}
@@ -181,7 +183,7 @@ static void findAndShow(adrArmada Larmada) {
 		}
 		break;
 	case 2:
-		showAllArmada(Larmada,false);
+		showAllArmada(Larmada,false,false);
 		if (Larmada != NULL) {
 			std::cout << " Search nama kendaraan : ";
 			std::cin >> data.nama_armada;
@@ -198,6 +200,12 @@ static void findAndShow(adrArmada Larmada) {
 					std::cout << " \tWaktu Berangkat\t: " << current->info.waktu << std::endl << std::endl;
 					std::cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << std::endl;
 					std::cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << std::endl << std::endl;
+					child = current->cargo;
+					while (child != NULL) {
+						std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
+						std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;;
+						child = child->next;
+					}
 				}
 				current = current->next;
 			}
@@ -205,7 +213,7 @@ static void findAndShow(adrArmada Larmada) {
 		}
 		break;
 	case 3:
-		showAllArmada(Larmada,false);
+		showAllArmada(Larmada,false,false);
 		if (Larmada != NULL) {
 			std::cout << " Search Start Jadwal[tgl bln thn] : ";
 			int start_tgl,start_bln, start_thn, end_tgl, end_bln, end_thn;
@@ -227,6 +235,12 @@ static void findAndShow(adrArmada Larmada) {
 							std::cout << " \tWaktu Berangkat\t: " << current->info.waktu << std::endl << std::endl;
 							std::cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << std::endl;
 							std::cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << std::endl << std::endl;
+							child = current->cargo;
+							while (child != NULL) {
+								std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
+								std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;;
+								child = child->next;
+							}
 						}
 					}
 				}
@@ -235,7 +249,7 @@ static void findAndShow(adrArmada Larmada) {
 		}
 		break;
 	case 4:
-		showAllArmada(Larmada, false);
+		showAllArmada(Larmada, false,false);
 		if (Larmada != NULL) {
 			std::cout << " Search Tujuan : ";
 			std::cin >> data.tujuan;
@@ -252,6 +266,12 @@ static void findAndShow(adrArmada Larmada) {
 					std::cout << " \tWaktu Berangkat\t: " << current->info.waktu << std::endl << std::endl;
 					std::cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << std::endl;
 					std::cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << std::endl << std::endl;
+					child = current->cargo;
+					while (child != NULL) {
+						std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
+						std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;;
+						child = child->next;
+					}
 				}
 				current = current->next;
 			}
@@ -280,37 +300,46 @@ static void menu_cargo() {
 	gotoxy(1, 9);
 	puts("====================================================");
 }
-static void addCargo(adrCargo& cargo) {
-	adrCargo alloc;
+static void addCargo(adrCargo& cargo, adrArmada armada) {
+	adrCargo child;
+	adrArmada searchAramda; Armada dataA;
 	int total, done; int i = 1; bool dup = false;
 	gotoxy(0, 10);
-	std::cout << "Masukan Jumlah Data : ";
-	std::cin >> total;
-	if (total >= 1) {
-		for (i = 1; i <= total;) {
-			system("cls");
-			menu_cargo();
-			gotoxy(1, 12 + i);
-			if (dup) std::cout << "================ KODE DUPLIKAT SILAHKAN INPUT ULANG ================" << std::endl;
-			else std::cout << "================ MASUKAN DATA KE-" << i << " ================" << std::endl;
-			Cargo newdata;
-			std::cout << "Kode Barang : ";
-			std::cin >> newdata.id_barang;
-			std::cout << "Nama Barang : ";
-			std::cin >> newdata.nama_barang;
-			std::cout << "Volume Barang : ";
-			std::cin >> newdata.volume_barang;
-			if (findChildByID(cargo, newdata) == NULL) {
-				++i;
-				insertLastChild(cargo, allocCargo(newdata));
-				dup = false;
-			}
-			else {
-				dup = true;
+	showAllArmada(armada, false, false);
+
+	std::cout << "Masukan Kode Armada : ";
+	std::cin >> dataA.id;
+
+	searchAramda = findArmadaByID(armada, dataA); //nyari parrent
+	if (searchAramda != NULL) {
+		std::cout << "Masukan Jumlah Data : ";
+		std::cin >> total;
+
+		if (total >= 1) {
+			for (i = 1; i <= total;) {
+				if (dup) std::cout << "================ KODE DUPLIKAT SILAHKAN INPUT ULANG ================" << std::endl;
+				else std::cout << "================ MASUKAN DATA KE-" << i << " ================" << std::endl;
+				Cargo newdata;
+
+				std::cout << "Kode Barang : ";
+				std::cin >> newdata.id_barang;
+				std::cout << "Nama Barang : ";
+				std::cin >> newdata.nama_barang;
+				std::cout << "Volume Barang : ";
+				std::cin >> newdata.volume_barang;
+
+				if (findChildByID(searchAramda->cargo, newdata) == NULL) { // idnya ada yang sama atau tidak.
+					insertLastChild(searchAramda->cargo, allocCargo(newdata));
+					searchAramda->info.capacity += newdata.volume_barang;
+					dup = false;
+					++i;
+				}else dup = true;
+				
 			}
 		}
-	}
-	else puts("Total yang kamu masukan kurang dari 1");
+		else puts("Total yang kamu masukan kurang dari 1");
+
+	}else puts("Armada tidak di temukan");
 }
 static void deleteByIdChild(adrCargo& cargo) {
 	Cargo newdata; int pause = 0;
@@ -328,8 +357,8 @@ static void deleteByIdChild(adrCargo& cargo) {
 		std::cout << "Data tidak ditemukan dengan ID : " << newdata.id_barang << std::endl;
 	}
 }
-static void findAndShowChild(adrCargo Lcargo) {
-	adrArmada current, Larmada;
+static void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
+	adrArmada current;
 	adrCargo list_barang, searchCargo;
 	Cargo newdata;
 	int select_find = 0;
@@ -338,7 +367,7 @@ static void findAndShowChild(adrCargo Lcargo) {
 	std::cin >> select_find;
 	switch (select_find) {
 	case 1:
-		showAllArmada(Larmada, false);
+		showAllArmada(Larmada, false,true);
 		if (Larmada != NULL) {
 			current = Larmada;
 			std::cout << " Search Kode : ";
@@ -361,7 +390,7 @@ static void findAndShowChild(adrCargo Lcargo) {
 		}
 		break;
 	case 2:
-		showAllArmada(Larmada, false);
+		showAllArmada(Larmada, false,true);
 		if (Larmada != NULL) {
 			current = Larmada;
 			std::cout << " Search Nama Barang : ";
@@ -369,6 +398,7 @@ static void findAndShowChild(adrCargo Lcargo) {
 			while (current != NULL) {
 				list_barang = current->cargo;
 				while (list_barang != NULL) {
+					searchCargo = findChildByID(Lcargo, newdata);
 					if (list_barang->info.nama_barang == newdata.nama_barang) {
 						std::cout << "================== Search Cargo ==================" << std::endl << std::endl;
 						std::cout << "\tKode Barang\t: " << searchCargo->info.id_barang << std::endl;

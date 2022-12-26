@@ -13,6 +13,7 @@ int main()
 	Armada max_data, min_data;
 	int min, max;
 	init(armada);
+	initCargo(cargo);
 	int kategori = -1; int menu = -1; bool stat = false; int pause;
 	mahasiswa();
 	if (cin.get())system("cls");
@@ -37,7 +38,7 @@ int main()
 				puts("\n\nHapus Data Selesai [Press 0 - 9] Untuk kembali ke menu");
 				break;
 			case 3:
-				showAllArmada(armada,true);
+				showAllArmada(armada,true,true);
 				puts("\n\Show Data Selesai [Press 0 - 9] Untuk kembali ke menu");
 				cin >> pause;
 				break;
@@ -54,21 +55,6 @@ int main()
 				puts("\n\nCari Data Selesai [Press 0 - 9] Untuk kembali ke menu");
 				cin >> pause;
 				break;
-			case 6:
-				addCargo(cargo);
-				puts("\n\nPenambahan Data Selesai [Press 0 - 9] Untuk kembali ke menu");
-				cin >> pause;
-				break;
-			case 7:
-				deleteByIdChild(cargo);
-				cin >> pause;
-				puts("\n\nHapus Data Selesai [Press 0 - 9] Untuk kembali ke menu");
-				break;
-			case 8:
-				findAndShowChild(cargo);
-				puts("\n\nCari Data Selesai [Press 0 - 9] Untuk kembali ke menu");
-				cin >> pause;
-				break;
 			case 9:
 				stat = false;
 				break;
@@ -81,11 +67,24 @@ int main()
 			}
 		}
 		if (kategori == 2 && stat == true) {
-			menu_armada();
+			menu_cargo();
+			std::cout << "Select Menu : ";
+			std::cin >> menu;
 			switch (menu) {
 			case 1:
+				addCargo(cargo,armada);
+				puts("\n\nPenambahan Data Selesai [Press 0 - 9] Untuk kembali ke menu");
+				cin >> pause;
 				break;
 			case 2:
+				deleteByIdChild(cargo);
+				cin >> pause;
+				puts("\n\nHapus Data Selesai [Press 0 - 9] Untuk kembali ke menu");
+				break;
+			case 3:
+				findAndShowChild(cargo, armada);
+				puts("\n\nCari Data Selesai [Press 0 - 9] Untuk kembali ke menu");
+				cin >> pause;
 				break;
 			case 9:
 				stat = false;

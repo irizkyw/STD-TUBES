@@ -29,4 +29,4 @@ void countAllChild(adrArmada Larmada);
 int countMinimumChild(adrArmada Larmada, Armada& data);
 int countMaximumChild(adrArmada Larmada, Armada& data);
 
-void showAllArmada(adrArmada Larmada, bool showAll);
+void showAllArmada(adrArmada Larmada, bool showAll, bool showChild);

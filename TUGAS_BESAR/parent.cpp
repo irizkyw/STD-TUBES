@@ -144,8 +144,9 @@ int countMaximumChild(adrArmada Larmada, Armada& data_armada) {
 	}
 	else return -1;
 }
-void showAllArmada(adrArmada Larmada,bool showAll) {
+void showAllArmada(adrArmada Larmada,bool showAll, bool showChild) {
 	adrArmada current; int i = 0;
+	adrCargo child;
 	system("cls");
 	if (Larmada == NULL) cout << "Armada Kosong" << endl;
 	else {
@@ -160,8 +161,15 @@ void showAllArmada(adrArmada Larmada,bool showAll) {
 			if (showAll == false) cout << " \tArmada Tujuan\t: " << current->info.tujuan << endl;
 			if (showAll == false) cout << " \tJadwal Berangkat: " << current->info.jadwal << endl;
 			if (showAll) cout << " \tWaktu Berangkat\t: " << current->info.waktu << endl << endl;
-			if (showAll) cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << endl;
-			if (showAll) cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << endl << endl;
+			cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << endl;
+			cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << endl;
+			child = current->cargo;
+			if (child != NULL) cout << " *\tList Barang dari Cargo :" << endl;
+			while (child != NULL) {
+				cout << "	+ Nama Barang\t: " << "[" << child->info.id_barang << "]" << child->info.nama_barang << endl;
+				cout << "	  Volume\t: " << child->info.volume_barang << " KG" << endl << endl;
+				child = child->next;
+			}
 			if (showAll == false) cout << endl;
 			current = current->next;
 			i++;

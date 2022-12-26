@@ -10,6 +10,7 @@ struct element_cargo {
 	adrCargo next;
 };
 
+void initCargo(adrCargo& start);
 adrCargo allocCargo(Cargo data);
 void insertFirstChild(adrCargo& Lcargo, adrCargo data_baru);
 void insertAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo data_baru);
@@ -19,3 +20,4 @@ void deleteLastChild(adrCargo& Lcargo, adrCargo& del);
 void deleteAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo& del);
 
 adrCargo findChildByID(adrCargo Lcargo, Cargo search);
+void showAllCargo(adrCargo LCargo, bool stat);

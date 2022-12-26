@@ -2,6 +2,8 @@
 
 using namespace std;
 
+void initCargo(adrCargo& start) {start = NULL;}
+
 adrCargo allocCargo(Cargo data) {
 	adrCargo alloc = new element_cargo;
 	alloc->info = data;
@@ -29,7 +31,7 @@ void insertAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo data_baru) {
 void insertLastChild(adrCargo& Lcargo, adrCargo data_baru) {
 	adrCargo current;
 	if (Lcargo == NULL)
-		Lcargo = data_baru;
+		insertFirstChild(Lcargo, data_baru);
 	else {
 		current = Lcargo;
 		while (current->next != NULL) current = current->next;
