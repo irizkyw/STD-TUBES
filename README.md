@@ -9,6 +9,6 @@ Tugas ini adalah Tugas akhir matakuliah Struktur data dengan materi Multi Linked
 ## Contributing[KELOMPOK]
 Dalam Projek ini yang berkontribusi adalah
 ```
-- Ichwan Rizky Wahyudin - 1301213434
-- Wahyu Nata Mahendra - NIM
+Bagian Parent(Armada)     :  Ichwan Rizky Wahyudin - 1301213434
+Bagian Child(List Barang) :  Wahyu Nata Mahendra - NIM
 ```
