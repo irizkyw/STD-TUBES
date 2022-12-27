@@ -39,15 +39,7 @@ static void mahasiswa() {
 	gotoxy(45, 23);
 	puts("PRESS ENTER UNTUK MASUK");
 }
-static void dummy(adrArmada& Larmada) {
-	Armada data;
-	data.id = "A001"; data.nama_armada = "Armada1"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 1; data.bulan = 1; data.tahun = 2020; data.jadwal = "01/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
-	insertLast(Larmada, allocArmada(data));
-	data.id = "A002"; data.nama_armada = "Armada2"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 2; data.bulan = 1; data.tahun = 2020; data.jadwal = "02/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
-	insertLast(Larmada, allocArmada(data));
-	data.id = "A003"; data.nama_armada = "Armada3"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 3; data.bulan = 1; data.tahun = 2020; data.jadwal = "03/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
-	insertLast(Larmada, allocArmada(data));
-}
+
 static void category(int &select, bool &stat) {
 	system("cls");
 	std::vector<std::string> menu = {
@@ -119,7 +111,7 @@ static void addArmada(adrArmada &armada) {
 			std::cout << "Kapasitas Maksimal(KG) : ";
 			std::cin >> data.max_capacity;
 			data.capacity = 0;
-			if (findArmadaByID(armada, data) == NULL) {
+			if (findArmadaByID(armada, data) == NULL) { //datanya udah ada ato belum
 				++i;
 				insertLast(armada, allocArmada(data));
 				dup = false;
@@ -169,14 +161,10 @@ static void findAndShow(adrArmada Larmada) {
 				std::cout << " \tArmada Tujuan\t: " << search->info.tujuan << std::endl;
 				std::cout << " \tJadwal Berangkat: " << search->info.jadwal << std::endl;
 				std::cout << " \tWaktu Berangkat\t: " << search->info.waktu << std::endl << std::endl;
-				std::cout << " \tMax Kapasitas\t: " << search->info.max_capacity << " KG" << std::endl;
-				std::cout << " \tTotal Kapasitas\t: " << search->info.capacity << " KG" << std::endl << std::endl;
-				child = search->cargo;
-				while (child != NULL) {
-					std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
-					std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;
-					child = child->next;
-				}
+				std::cout << " \tKapasitas\t: " << search->info.capacity << " / " << search->info.max_capacity << " KG" << std::endl;
+				std::cout << " *\tList Barang dari Cargo :" << std::endl;
+				showAllCargo(search->cargo);
+				std::cout << std:: endl;
 				std::cout << "==================== EndSearch ====================" << std::endl;
 			}
 			else std::cout << data.id << " Tidak ditemukan!!" << std::endl;
@@ -198,14 +186,8 @@ static void findAndShow(adrArmada Larmada) {
 					std::cout << " \tArmada Tujuan\t: " << current->info.tujuan << std::endl;
 					std::cout << " \tJadwal Berangkat: " << current->info.jadwal << std::endl;
 					std::cout << " \tWaktu Berangkat\t: " << current->info.waktu << std::endl << std::endl;
-					std::cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << std::endl;
-					std::cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << std::endl << std::endl;
-					child = current->cargo;
-					while (child != NULL) {
-						std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
-						std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;;
-						child = child->next;
-					}
+					std::cout << " \tKapasitas\t: " << current->info.capacity << " / " << current->info.max_capacity << " KG" << std::endl;
+					showAllCargo(current->cargo);
 				}
 				current = current->next;
 			}
@@ -233,14 +215,9 @@ static void findAndShow(adrArmada Larmada) {
 							std::cout << " \tArmada Tujuan\t: " << current->info.tujuan << std::endl;
 							std::cout << " \tJadwal Berangkat: " << current->info.jadwal << std::endl;
 							std::cout << " \tWaktu Berangkat\t: " << current->info.waktu << std::endl << std::endl;
-							std::cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << std::endl;
-							std::cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << std::endl << std::endl;
-							child = current->cargo;
-							while (child != NULL) {
-								std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
-								std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;;
-								child = child->next;
-							}
+							std::cout << " \tKapasitas\t: " << current->info.capacity << " / " << current->info.max_capacity << " KG" << std::endl;
+							std::cout << " *\tList Barang dari Cargo :" << std::endl;
+							showAllCargo(current->cargo);
 						}
 					}
 				}
@@ -264,14 +241,9 @@ static void findAndShow(adrArmada Larmada) {
 					std::cout << " \tArmada Tujuan\t: " << current->info.tujuan << std::endl;
 					std::cout << " \tJadwal Berangkat: " << current->info.jadwal << std::endl;
 					std::cout << " \tWaktu Berangkat\t: " << current->info.waktu << std::endl << std::endl;
-					std::cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << std::endl;
-					std::cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << std::endl << std::endl;
-					child = current->cargo;
-					while (child != NULL) {
-						std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
-						std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;;
-						child = child->next;
-					}
+					std::cout << " \tKapasitas\t: " << current->info.capacity << " / " << current->info.max_capacity << " KG" << std::endl;
+					std::cout << " *\tList Barang dari Cargo :" << std::endl;
+					showAllCargo(current->cargo);
 				}
 				current = current->next;
 			}
@@ -418,3 +390,12 @@ static void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
 	}
 }
 
+static void dummy(adrArmada& Larmada) {
+	Armada data;
+	data.id = "A001"; data.nama_armada = "Armada1"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 1; data.bulan = 1; data.tahun = 2020; data.jadwal = "01/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
+	insertLast(Larmada, allocArmada(data));
+	data.id = "A002"; data.nama_armada = "Armada2"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 2; data.bulan = 1; data.tahun = 2020; data.jadwal = "02/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
+	insertLast(Larmada, allocArmada(data));
+	data.id = "A003"; data.nama_armada = "Armada3"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 3; data.bulan = 1; data.tahun = 2020; data.jadwal = "03/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
+	insertLast(Larmada, allocArmada(data));
+}

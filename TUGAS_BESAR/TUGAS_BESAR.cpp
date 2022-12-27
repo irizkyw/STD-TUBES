@@ -50,8 +50,10 @@ int main()
 			case 5:
 				max = countMaximumChild(armada, max_data);
 				min = countMinimumChild(armada, min_data);
-				cout << "Data paling banyak adalah " << max << " Dengan Kode Armada" << max_data.id << endl;
-				cout << "Data paling sedikit adalah " << max << " Dengan Kode Armada" << max_data.id << endl;
+				if (max != INT_MIN && min != INT_MAX) {
+					cout << "Data paling banyak adalah " << max << " barang, Dengan Kode Armada " << max_data.id << endl;
+					cout << "Data paling sedikit adalah " << min << " barang, Dengan Kode Armada " << min_data.id << endl;
+				}else cout << "Tidak ada barang" << endl;
 				puts("\n\nCari Data Selesai [Press 0 - 9] Untuk kembali ke menu");
 				cin >> pause;
 				break;

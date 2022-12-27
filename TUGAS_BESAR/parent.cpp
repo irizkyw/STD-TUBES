@@ -103,7 +103,7 @@ void countAllChild(adrArmada Larmada) {
 	else std::cout << "[ERROR] List Armada Kosong!!" << std::endl;
 }
 int countMinimumChild(adrArmada Larmada, Armada& data_armada) {
-	int total = 0; int temp; adrArmada current; adrCargo child;
+	int total = INT_MAX; int temp; adrArmada current; adrCargo child;
 	if (Larmada != NULL) {
 		current = Larmada;
 		while (current != NULL) {
@@ -113,9 +113,9 @@ int countMinimumChild(adrArmada Larmada, Armada& data_armada) {
 				temp++;
 				child = child->next;
 			}
-			if (temp > total) {
+			if (temp < total && temp >= 1) {
 				data_armada = current->info;
-				temp = total;
+				total = temp;
 			}
 			current = current->next;
 		}
@@ -136,7 +136,7 @@ int countMaximumChild(adrArmada Larmada, Armada& data_armada) {
 			}
 			if (temp > total) {
 				data_armada = current->info;
-				temp = total;
+				total = temp;
 			}
 			current = current->next;
 		}
@@ -161,19 +161,27 @@ void showAllArmada(adrArmada Larmada,bool showAll, bool showChild) {
 			if (showAll == false) cout << " \tArmada Tujuan\t: " << current->info.tujuan << endl;
 			if (showAll == false) cout << " \tJadwal Berangkat: " << current->info.jadwal << endl;
 			if (showAll) cout << " \tWaktu Berangkat\t: " << current->info.waktu << endl << endl;
-			cout << " \tMax Kapasitas\t: " << current->info.max_capacity << " KG" << endl;
-			cout << " \tTotal Kapasitas\t: " << current->info.capacity << " KG" << endl;
+			cout << " \tKapasitas\t: " << current->info.capacity << " / " <<current->info.max_capacity << " KG" << endl;
 			child = current->cargo;
-			if (child != NULL) cout << " *\tList Barang dari Cargo :" << endl;
-			while (child != NULL) {
-				cout << "	+ Nama Barang\t: " << "[" << child->info.id_barang << "]" << child->info.nama_barang << endl;
-				cout << "	  Volume\t: " << child->info.volume_barang << " KG" << endl << endl;
+			if (child != NULL && showChild) cout << " *\tList Barang dari Cargo :" << endl;
+			while (child != NULL && showChild) {
+				cout << "	+ Nama Barang\t: " << "[" << child->info.id_barang << "] " << child->info.nama_barang << endl;
+				cout << "	  Volume\t: " << child->info.volume_barang << " KG" << endl;
 				child = child->next;
 			}
-			if (showAll == false) cout << endl;
+			cout << endl;
 			current = current->next;
 			i++;
 		}
 		cout << "==================== End List! ====================" << endl;
+	}
+}
+
+void showAllCargo(adrCargo Lcargo) {
+	adrCargo child = Lcargo;
+	while (child != NULL) {
+		std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
+		std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;;
+		child = child->next;
 	}
 }
