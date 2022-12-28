@@ -176,12 +176,3 @@ void showAllArmada(adrArmada Larmada,bool showAll, bool showChild) {
 		cout << "==================== End List! ====================" << endl;
 	}
 }
-
-void showAllCargo(adrCargo Lcargo) {
-	adrCargo child = Lcargo;
-	while (child != NULL) {
-		std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
-		std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;;
-		child = child->next;
-	}
-}

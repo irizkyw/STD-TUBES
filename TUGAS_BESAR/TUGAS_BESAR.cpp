@@ -79,7 +79,7 @@ int main()
 				cin >> pause;
 				break;
 			case 2:
-				deleteByIdChild(cargo);
+				deleteByIdChild(armada,cargo);
 				cin >> pause;
 				puts("\n\nHapus Data Selesai [Press 0 - 9] Untuk kembali ke menu");
 				break;
