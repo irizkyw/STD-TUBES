@@ -314,11 +314,11 @@ static void addCargo(adrCargo& cargo, adrArmada armada) {
 	}else puts("Armada tidak di temukan");
 }
 static void deleteByIdChild(adrArmada armada,adrCargo& cargo) {
-	adrArmada current;
-	adrCargo child, temp, del;
+	adrArmada current, curr;
 	Cargo data;
 	int pause = 0;
 	current = armada;
+	curr = armada;
 	if (armada != NULL) {
 		while (current != NULL) {
 			std::cout << " >\tKode Armada\t: " << current->info.id << std::endl;
@@ -330,22 +330,26 @@ static void deleteByIdChild(adrArmada armada,adrCargo& cargo) {
 			std::cout << " \tWaktu Berangkat\t: " << current->info.waktu << std::endl << std::endl;
 			std::cout << " \tKapasitas\t: " << current->info.capacity << " / " << current->info.max_capacity << " KG" << std::endl;
 			std::cout << " *\tList Barang dari Cargo :" << std::endl;
-			child = current->cargo;
-			if (child != NULL) {
-				showAllCargo(child);
-			}
+			showAllCargo(current->cargo);
 			current = current->next;
 		}
-		std::cout << "\nHapus Data dengan Kode :";
-		std::cin >> data.id_barang;
-		temp = findChildByID(child, data);
-		if (temp != NULL) {
-			deleteAfterChild(child, temp, del);
-			if (del != NULL) {
-				std::cout << "Data Berhasil dihapus dengan ID : " << del->info.id_barang << std::endl;
+		while (curr != NULL) {
+			curr->cargo;
+			if (curr->cargo != NULL) {
+				std::cout << "\nHapus Data dengan Kode : ";
+				std::cin >> data.id_barang;
+				adrCargo temp, del;
+				temp = findChildByID(curr->cargo, data);
+				if (temp != NULL) {
+					deleteAfterChild(curr->cargo, temp, del);
+					if (del != NULL) {
+						std::cout << "Data Berhasil dihapus dengan ID : " << del->info.id_barang << std::endl;
+					}
+				}
+				else std::cout << "Data tidak ditemukan dengan ID : " << data.id_barang << std::endl;
 			}
+			curr = curr->next;
 		}
-		else std::cout << "Data tidak ditemukan dengan ID : " << data.id_barang << std::endl;
 	}
 }
 static void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
