@@ -1,8 +1,10 @@
 #include "globals.h"
 
+using namespace std;
+
 void mahasiswa() {
 	system("cls");
-	std::vector<std::string> mahasiswa = {
+	vector<string> mahasiswa = {
 		{"Ichwan Rizky Wahyudin - 1301213434"}, {"Wahyu Nata Mahendra - 1301213101"}
 	};
 
@@ -12,7 +14,7 @@ void mahasiswa() {
 	puts("TUGAS BESAR STRUKTUR DATA");
 	for (int i = 0; i < mahasiswa.size(); ++i) {
 		gotoxy(38, 12 + i);
-		std::cout << i + 1 << "> " << mahasiswa[i];
+		cout << i + 1 << "> " << mahasiswa[i];
 	}
 	gotoxy(30, 15);
 	puts("===================================================");
@@ -21,7 +23,7 @@ void mahasiswa() {
 }
 void category(int& select, bool& stat) {
 	system("cls");
-	std::vector<std::string> menu = {
+	vector<string> menu = {
 		{"Kelola Armada"}, {"Kelola Cargo"},
 	};
 
@@ -29,16 +31,16 @@ void category(int& select, bool& stat) {
 	puts("================= PILIH KATEGORI! =================");
 	for (int i = 0; i < menu.size(); ++i) {
 		gotoxy(3, 2 + i);
-		std::cout << i + 1 << "> " << menu[i];
+		cout << i + 1 << "> " << menu[i];
 	}
 	gotoxy(3, 4);
-	std::cout << 9 << "> " << "Kembali Ke Kategori";
+	cout << 9 << "> " << "Kembali Ke Kategori";
 	gotoxy(3, 5);
-	std::cout << 0 << "> " << "Exit";
+	cout << 0 << "> " << "Exit";
 	gotoxy(1, 6);
 	puts("====================================================");
-	std::cout << "Select Menu : ";
-	std::cin >> select;
+	cout << "Select Menu : ";
+	cin >> select;
 	if (select == 1 || select == 2) stat = true;
 }
 void menu_armada() {
@@ -47,12 +49,12 @@ void menu_armada() {
 	puts("=================== PILIH MENU! ===================");
 	for (int i = 0; i < menu.size(); ++i) {
 		gotoxy(3, 2 + i);
-		std::cout << i + 1 << "> " << menu[i];
+		cout << i + 1 << "> " << menu[i];
 	}
 	gotoxy(3, menu.size() + 2);
-	std::cout << 9 << "> " << "Kembali Ke Kategori";
+	cout << 9 << "> " << "Kembali Ke Kategori";
 	gotoxy(3, menu.size() + 3);
-	std::cout << 0 << "> " << "Exit";
+	cout << 0 << "> " << "Exit";
 	gotoxy(1, menu.size() + 4);
 	puts("====================================================");
 }
@@ -61,33 +63,33 @@ void addArmada(adrArmada& armada) {
 	adrArmada alloc;
 	int total, done; int i = 1; bool dup = false;
 	gotoxy(0, menu.size() + 5);
-	std::cout << "Masukan Jumlah Data : ";
-	std::cin >> total;
+	cout << "Masukan Jumlah Data : ";
+	cin >> total;
 	if (total >= 1) {
 		for (i = 1; i <= total;) {
 			system("cls");
 			menu_armada();
 			gotoxy(1, 12 + i);
-			if (dup) std::cout << "================ KODE DUPLIKAT SILAHKAN INPUT ULANG ================" << std::endl;
-			else std::cout << "================ MASUKAN DATA KE-" << i << " ================" << std::endl;
+			if (dup) cout << "================ KODE DUPLIKAT SILAHKAN INPUT ULANG ================" << endl;
+			else cout << "================ MASUKAN DATA KE-" << i << " ================" << endl;
 			Armada data;
-			std::cout << "Kode Armada : ";
-			std::cin >> data.id;
-			std::cout << "Nama Armada : ";
-			std::cin >> data.nama_armada;
-			std::cout << "Jenis Armada : ";
-			std::cin >> data.jenis_armada;
-			std::cout << "Armada Asal: ";
-			std::cin >> data.asal;
-			std::cout << "Armada Tujuan : ";
-			std::cin >> data.tujuan;
-			std::cout << "Jadwal Berangkat[tgl bulan tahun] : ";
-			std::cin >> data.tanggal; std::cin >> data.bulan; std::cin >> data.tahun;
-			data.jadwal = std::to_string(data.tanggal) + "/" + std::to_string(data.bulan) + "/" + std::to_string(data.tahun);
-			std::cout << "Waktu Berangkat : ";
-			std::cin >> data.waktu;
-			std::cout << "Kapasitas Maksimal(KG) : ";
-			std::cin >> data.max_capacity;
+			cout << "Kode Armada : ";
+			cin >> data.id;
+			cout << "Nama Armada : ";
+			cin >> data.nama_armada;
+			cout << "Jenis Armada : ";
+			cin >> data.jenis_armada;
+			cout << "Armada Asal: ";
+			cin >> data.asal;
+			cout << "Armada Tujuan : ";
+			cin >> data.tujuan;
+			cout << "Jadwal Berangkat[tgl bulan tahun] : ";
+			cin >> data.tanggal; cin >> data.bulan; cin >> data.tahun;
+			data.jadwal = to_string(data.tanggal) + "/" + to_string(data.bulan) + "/" + to_string(data.tahun);
+			cout << "Waktu Berangkat : ";
+			cin >> data.waktu;
+			cout << "Kapasitas Maksimal(KG) : ";
+			cin >> data.max_capacity;
 			data.capacity = 0;
 			if (findArmadaByID(armada, data) == NULL) { //datanya udah ada ato belum
 				++i;
@@ -105,15 +107,15 @@ void deleteById(adrArmada& armada) {
 	Armada data; int pause = 0;
 	showAllArmada(armada, false, false);
 	if (armada != NULL) {
-		std::cout << "\nHapus data dengan Kode :";
-		std::cin >> data.id;
+		cout << "\nHapus data dengan Kode :";
+		cin >> data.id;
 		adrArmada del, searchArmada;
 		searchArmada = findArmadaByID(armada, data);
 		if (searchArmada != NULL) {
 			deleteAfter(armada, searchArmada, del);
-			if (del != NULL) std::cout << "Data Berhasil di hapus dengan ID : " << del->info.id << std::endl;
+			if (del != NULL) cout << "Data Berhasil di hapus dengan ID : " << del->info.id << endl;
 		}
-		else std::cout << "Data tidak ditemukan dengan ID : " << data.id << std::endl;
+		else cout << "Data tidak ditemukan dengan ID : " << data.id << endl;
 	}
 }
 void findAndShow(adrArmada Larmada) {
@@ -121,81 +123,81 @@ void findAndShow(adrArmada Larmada) {
 	adrCargo child;
 	Armada data;
 	int select_find = 0;
-	std::cout << " [1]Search info Kode; [2]Search nama; [3]Search info range jadwal; [4] Search info tujuan;" << std::endl;
-	std::cout << "Search dengan: ";
-	std::cin >> select_find;
+	cout << " [1]Search info Kode; [2]Search nama; [3]Search info range jadwal; [4] Search info tujuan;" << endl;
+	cout << "Search dengan: ";
+	cin >> select_find;
 	switch (select_find) {
 	case 1:
 		showAllArmada(Larmada, false, false);
 		if (Larmada != NULL) {
-			std::cout << " Search Kode : ";
-			std::cin >> data.id;
+			cout << " Search Kode : ";
+			cin >> data.id;
 			search = findArmadaByID(Larmada, data);
 			if (search != NULL) {
-				std::cout << "================== Search Armada ==================" << std::endl << std::endl;
-				std::cout << " >\tKode Armada\t: " << search->info.id << std::endl;
-				std::cout << " \tNama Armada\t: " << search->info.nama_armada << std::endl;
-				std::cout << " \tJenis Armada\t: " << search->info.jenis_armada << std::endl;
-				std::cout << " \tArmada Asal\t: " << search->info.asal << std::endl;
-				std::cout << " \tArmada Tujuan\t: " << search->info.tujuan << std::endl;
-				std::cout << " \tJadwal Berangkat: " << search->info.jadwal << std::endl;
-				std::cout << " \tWaktu Berangkat\t: " << search->info.waktu << std::endl << std::endl;
-				std::cout << " \tKapasitas\t: " << search->info.capacity << " / " << search->info.max_capacity << " KG" << std::endl;
-				std::cout << " *\tList Barang dari Cargo :" << std::endl;
+				cout << "================== Search Armada ==================" << endl << endl;
+				cout << " >\tKode Armada\t: " << search->info.id << endl;
+				cout << " \tNama Armada\t: " << search->info.nama_armada << endl;
+				cout << " \tJenis Armada\t: " << search->info.jenis_armada << endl;
+				cout << " \tArmada Asal\t: " << search->info.asal << endl;
+				cout << " \tArmada Tujuan\t: " << search->info.tujuan << endl;
+				cout << " \tJadwal Berangkat: " << search->info.jadwal << endl;
+				cout << " \tWaktu Berangkat\t: " << search->info.waktu << endl << endl;
+				cout << " \tKapasitas\t: " << search->info.capacity << " / " << search->info.max_capacity << " KG" << endl;
+				cout << " *\tList Barang dari Cargo :" << endl;
 				showAllCargo(search->cargo);
-				std::cout << std::endl;
-				std::cout << "==================== EndSearch ====================" << std::endl;
+				cout << endl;
+				cout << "==================== EndSearch ====================" << endl;
 			}
-			else std::cout << data.id << " Tidak ditemukan!!" << std::endl;
+			else cout << data.id << " Tidak ditemukan!!" << endl;
 		}
 		break;
 	case 2:
 		showAllArmada(Larmada, false, false);
 		if (Larmada != NULL) {
-			std::cout << " Search nama kendaraan : ";
-			std::cin >> data.nama_armada;
+			cout << " Search nama kendaraan : ";
+			cin >> data.nama_armada;
 			current = Larmada;
-			std::cout << "================== Search Armada ==================" << std::endl << std::endl;
+			cout << "================== Search Armada ==================" << endl << endl;
 			while (current != NULL) {
 				if (current->info.nama_armada == data.nama_armada) {
-					std::cout << " >\tKode Armada\t: " << current->info.id << std::endl;
-					std::cout << " \tNama Armada\t: " << current->info.nama_armada << std::endl;
-					std::cout << " \tJenis Armada\t: " << current->info.jenis_armada << std::endl;
-					std::cout << " \tArmada Asal\t: " << current->info.asal << std::endl;
-					std::cout << " \tArmada Tujuan\t: " << current->info.tujuan << std::endl;
-					std::cout << " \tJadwal Berangkat: " << current->info.jadwal << std::endl;
-					std::cout << " \tWaktu Berangkat\t: " << current->info.waktu << std::endl << std::endl;
-					std::cout << " \tKapasitas\t: " << current->info.capacity << " / " << current->info.max_capacity << " KG" << std::endl;
+					cout << " >\tKode Armada\t: " << current->info.id << endl;
+					cout << " \tNama Armada\t: " << current->info.nama_armada << endl;
+					cout << " \tJenis Armada\t: " << current->info.jenis_armada << endl;
+					cout << " \tArmada Asal\t: " << current->info.asal << endl;
+					cout << " \tArmada Tujuan\t: " << current->info.tujuan << endl;
+					cout << " \tJadwal Berangkat: " << current->info.jadwal << endl;
+					cout << " \tWaktu Berangkat\t: " << current->info.waktu << endl << endl;
+					cout << " \tKapasitas\t: " << current->info.capacity << " / " << current->info.max_capacity << " KG" << endl;
 					showAllCargo(current->cargo);
 				}
 				current = current->next;
 			}
-			std::cout << "==================== EndSearch ====================" << std::endl;
+			cout << "==================== EndSearch ====================" << endl;
 		}
 		break;
 	case 3:
 		showAllArmada(Larmada, false, false);
 		if (Larmada != NULL) {
-			std::cout << " Search Start Jadwal[tgl bln thn] : ";
+			cout << " Search Start Jadwal[tgl bln thn] : ";
 			int start_tgl, start_bln, start_thn, end_tgl, end_bln, end_thn;
-			std::cin >> start_tgl; std::cin >> start_bln; std::cin >> start_thn;
-			std::cout << " Search End Jadwal[tgl bln thn] : ";
-			std::cin >> end_tgl; std::cin >> end_bln; std::cin >> end_thn;
+			cin >> start_tgl; cin >> start_bln; cin >> start_thn;
+			cout << " Search End Jadwal[tgl bln thn] : ";
+			cin >> end_tgl; cin >> end_bln; cin >> end_thn;
 			current = Larmada;
-			std::cout << "================== Search Armada ==================" << std::endl << std::endl;
+			cout << "================== Search Armada ==================" << endl << endl;
 			while (current != NULL) {
 				if (current->info.tanggal >= start_tgl && current->info.tanggal <= end_tgl) {
 					if (current->info.bulan >= start_bln && current->info.bulan <= end_bln) {
 						if (current->info.tahun >= start_thn && current->info.tahun <= end_thn) {
-							std::cout << " >\tKode Armada\t: " << current->info.id << std::endl;
-							std::cout << " \tNama Armada\t: " << current->info.nama_armada << std::endl;
-							std::cout << " \tJenis Armada\t: " << current->info.jenis_armada << std::endl;
-							std::cout << " \tArmada Asal\t: " << current->info.asal << std::endl;
-							std::cout << " \tArmada Tujuan\t: " << current->info.tujuan << std::endl;
-							std::cout << " \tJadwal Berangkat: " << current->info.jadwal << std::endl;
-							std::cout << " \tWaktu Berangkat\t: " << current->info.waktu << std::endl << std::endl;
-							std::cout << " \tKapasitas\t: " << current->info.capacity << " / " << current->info.max_capacity << " KG" << std::endl;
-							std::cout << " *\tList Barang dari Cargo :" << std::endl;
+							cout << " >\tKode Armada\t: " << current->info.id << endl;
+							cout << " \tNama Armada\t: " << current->info.nama_armada << endl;
+							cout << " \tJenis Armada\t: " << current->info.jenis_armada << endl;
+							cout << " \tArmada Asal\t: " << current->info.asal << endl;
+							cout << " \tArmada Tujuan\t: " << current->info.tujuan << endl;
+							cout << " \tJadwal Berangkat: " << current->info.jadwal << endl;
+							cout << " \tWaktu Berangkat\t: " << current->info.waktu << endl << endl;
+							cout << " \tKapasitas\t: " << current->info.capacity << " / " << current->info.max_capacity << " KG" << endl;
+							cout << " *\tList Barang dari Cargo :" << endl;
 							showAllCargo(current->cargo);
 						}
 					}
@@ -207,21 +209,21 @@ void findAndShow(adrArmada Larmada) {
 	case 4:
 		showAllArmada(Larmada, false, false);
 		if (Larmada != NULL) {
-			std::cout << " Search Tujuan : ";
-			std::cin >> data.tujuan;
+			cout << " Search Tujuan : ";
+			cin >> data.tujuan;
 			current = Larmada;
-			std::cout << "================== Search Armada ==================" << std::endl << std::endl;
+			cout << "================== Search Armada ==================" << endl << endl;
 			while (current != NULL) {
 				if (current->info.tujuan == data.tujuan) {
-					std::cout << " >\tKode Armada\t: " << current->info.id << std::endl;
-					std::cout << " \tNama Armada\t: " << current->info.nama_armada << std::endl;
-					std::cout << " \tJenis Armada\t: " << current->info.jenis_armada << std::endl;
-					std::cout << " \tArmada Asal\t: " << current->info.asal << std::endl;
-					std::cout << " \tArmada Tujuan\t: " << current->info.tujuan << std::endl;
-					std::cout << " \tJadwal Berangkat: " << current->info.jadwal << std::endl;
-					std::cout << " \tWaktu Berangkat\t: " << current->info.waktu << std::endl << std::endl;
-					std::cout << " \tKapasitas\t: " << current->info.capacity << " / " << current->info.max_capacity << " KG" << std::endl;
-					std::cout << " *\tList Barang dari Cargo :" << std::endl;
+					cout << " >\tKode Armada\t: " << current->info.id << endl;
+					cout << " \tNama Armada\t: " << current->info.nama_armada << endl;
+					cout << " \tJenis Armada\t: " << current->info.jenis_armada << endl;
+					cout << " \tArmada Asal\t: " << current->info.asal << endl;
+					cout << " \tArmada Tujuan\t: " << current->info.tujuan << endl;
+					cout << " \tJadwal Berangkat: " << current->info.jadwal << endl;
+					cout << " \tWaktu Berangkat\t: " << current->info.waktu << endl << endl;
+					cout << " \tKapasitas\t: " << current->info.capacity << " / " << current->info.max_capacity << " KG" << endl;
+					cout << " *\tList Barang dari Cargo :" << endl;
 					showAllCargo(current->cargo);
 				}
 				current = current->next;
@@ -234,7 +236,7 @@ void findAndShow(adrArmada Larmada) {
 // Cargo , Mahen
 void menu_cargo() {
 	system("cls");
-	std::vector<std::string> menu = {
+	vector<string> menu = {
 		{"Tambah Cargo"}, {"Hapus Cargo By Kode"}, {"Cari Cargo dan Tampilkan Spesifikasi Barangnya"}
 	};
 
@@ -242,12 +244,12 @@ void menu_cargo() {
 	puts("=================== PILIH MENU! ===================");
 	for (int i = 0; i < menu.size(); ++i) {
 		gotoxy(3, 2 + i);
-		std::cout << i + 1 << "> " << menu[i];
+		cout << i + 1 << "> " << menu[i];
 	}
 	gotoxy(3, 7);
-	std::cout << 9 << "> " << "Kembali Ke Kategori";
+	cout << 9 << "> " << "Kembali Ke Kategori";
 	gotoxy(3, 8);
-	std::cout << 0 << "> " << "Exit";
+	cout << 0 << "> " << "Exit";
 	gotoxy(1, 9);
 	puts("====================================================");
 }
@@ -257,34 +259,34 @@ void addCargo(adrCargo& cargo, adrArmada armada) {
 	int total, done; bool dup = false;
 	gotoxy(0, 10);
 	showAllArmada(armada, false, false);
-	std::cout << " * kode -1 Untuk Kembali\n";
-	std::cout << "Masukan Kode Armada : ";
-	std::cin >> dataA.id;
+	cout << " * kode -1 Untuk Kembali\n";
+	cout << "Masukan Kode Armada : ";
+	cin >> dataA.id;
 	if (dataA.id == "-1")return;
 
 	searchAramda = findArmadaByID(armada, dataA); //nyari parrent
 	if (searchAramda != NULL) {
-		std::cout << "Masukan Jumlah Data : ";
-		std::cin >> total;
+		cout << "Masukan Jumlah Data : ";
+		cin >> total;
 		if (total == -1) return;
 		if (total >= 1) {
 			for (int i = 1; i <= total;) {
-				if (dup) std::cout << "================ KODE DUPLIKAT SILAHKAN INPUT ULANG ================" << std::endl;
-				else std::cout << "================ MASUKAN DATA KE-" << i << " ================" << std::endl;
+				if (dup) cout << "================ KODE DUPLIKAT SILAHKAN INPUT ULANG ================" << endl;
+				else cout << "================ MASUKAN DATA KE-" << i << " ================" << endl;
 				Cargo newdata;
 
-				std::cout << "Kode Barang : ";
-				std::cin >> newdata.id_barang;
+				cout << "Kode Barang : ";
+				cin >> newdata.id_barang;
 				if (newdata.id_barang == "-1") return;
-				std::cout << "Nama Barang : ";
-				std::cin >> newdata.nama_barang;
-				std::cout << "Volume Barang : ";
-				std::cin >> newdata.volume_barang;
+				cout << "Nama Barang : ";
+				cin >> newdata.nama_barang;
+				cout << "Volume Barang : ";
+				cin >> newdata.volume_barang;
 
 				if (findChildByID(searchAramda->cargo, newdata) == NULL) { // idnya ada yang sama atau tidak.
 
 					if (searchAramda->info.capacity + newdata.volume_barang >= searchAramda->info.max_capacity)
-						std::cout << "Volume barang melebihi kapasitas!!" << std::endl;
+						cout << "Volume barang melebihi kapasitas!!" << endl;
 					else {
 						insertLastChild(searchAramda->cargo, allocCargo(newdata));
 						searchAramda->info.capacity += newdata.volume_barang;
@@ -303,24 +305,24 @@ void addCargo(adrCargo& cargo, adrArmada armada) {
 }
 void deleteByIdChild(adrArmada& armada) {
 	Cargo newdata; int pause = 0;
-	adrArmada current,Search_Armada;
+	adrArmada current, Search_Armada;
 	Armada id_armada;
 	if (armada != NULL) {
 		current = armada;
-		std::cout << "================== Search Cargo ==================" << std::endl << std::endl;
+		cout << "================== Search Cargo ==================" << endl << endl;
 		while (current != NULL) {
-			std::cout << " > Kode Armada : " << current->info.id << " [" << current->info.capacity << " / " << current->info.max_capacity << "]KG" << std::endl;
+			cout << " > Kode Armada : " << current->info.id << " [" << current->info.capacity << " / " << current->info.max_capacity << "]KG" << endl;
 			if (current->cargo == NULL)
-				std::cout << "\tList barang kosong !!" << std::endl;
+				cout << "\tList barang kosong !!" << endl;
 			showAllCargo(current->cargo);
 			current = current->next;
 		}
-		std::cout << "==================== EndSearch ====================" << std::endl;
+		cout << "==================== EndSearch ====================" << endl;
 
-		std::cout << " * -1 Untuk Kembali\n";
+		cout << " * -1 Untuk Kembali\n";
 
-		std::cout << "\nCari Armada dengan Kode : ";
-		std::cin >> id_armada.id;
+		cout << "\nCari Armada dengan Kode : ";
+		cin >> id_armada.id;
 		if (id_armada.id == "-1") return;
 
 
@@ -330,8 +332,8 @@ void deleteByIdChild(adrArmada& armada) {
 
 		if (Search_Armada != NULL) {
 
-			std::cout << "\nHapus data dengan Kode : ";
-			std::cin >> newdata.id_barang;
+			cout << "\nHapus data dengan Kode : ";
+			cin >> newdata.id_barang;
 			if (newdata.id_barang == "-1") return;
 
 			searchCargo = findChildByID(Search_Armada->cargo, newdata);
@@ -339,11 +341,12 @@ void deleteByIdChild(adrArmada& armada) {
 				deleteAfterChild(Search_Armada->cargo, searchCargo, del);
 				if (del != NULL) {
 					current->info.capacity -= del->info.volume_barang;
-					std::cout << "Data Berhasil di hapus dengan kode barang " << del->info.id_barang << std::endl;
+					cout << "Data Berhasil di hapus dengan kode barang " << del->info.id_barang << endl;
 				}
-			}else std::cout << "Data tidak ditemukan dengan ID : " << newdata.id_barang << std::endl;
+			}
+			else cout << "Data tidak ditemukan dengan ID : " << newdata.id_barang << endl;
 		}
-		else std::cout << "Armada tidak ditemukan dengan ID : " << id_armada.id << std::endl;
+		else cout << "Armada tidak ditemukan dengan ID : " << id_armada.id << endl;
 	}
 }
 
@@ -352,89 +355,89 @@ void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
 	adrCargo list_barang, searchCargo, show_child;
 	Cargo newdata;
 	int select_find = 0;
-	std::cout << " [1]Search info Kode; [2]Search nama;" << std::endl;
-	std::cout << "Search dengan: ";
-	std::cin >> select_find;
+	cout << " [1]Search info Kode; [2]Search nama;" << endl;
+	cout << "Search dengan: ";
+	cin >> select_find;
 
 	switch (select_find) {
 	case 1:
 		if (Larmada != NULL) {
-			std::cout << "=================== List Cargo! ===================" << std::endl << std::endl;
+			cout << "=================== List Cargo! ===================" << endl << endl;
 			show_list = Larmada;
 			while (show_list != NULL) {
 				show_child = show_list->cargo;
-				std::cout << " > Kode Armada : " << show_list->info.id << " [" << show_list->info.capacity << " / "
-					<< show_list->info.max_capacity << "]KG" << std::endl;
+				cout << " > Kode Armada : " << show_list->info.id << " [" << show_list->info.capacity << " / "
+					<< show_list->info.max_capacity << "]KG" << endl;
 				while (show_child != NULL) {
-					std::cout << "\tKode Barang : " << show_child->info.id_barang << std::endl;
+					cout << "\tKode Barang : " << show_child->info.id_barang << endl;
 					show_child = show_child->next;
 				}
 				show_list = show_list->next;
 			}
-			std::cout << "==================== End List! ====================" << std::endl;
+			cout << "==================== End List! ====================" << endl;
 
-			std::cout << " Search Kode : ";
-			std::cin >> newdata.id_barang;
+			cout << " Search Kode : ";
+			cin >> newdata.id_barang;
 
 			current = Larmada;
-			std::cout << "================== Search Cargo ==================" << std::endl << std::endl;
+			cout << "================== Search Cargo ==================" << endl << endl;
 			while (current != NULL) {
 				list_barang = current->cargo;
 				if (list_barang != NULL) {
 					searchCargo = findChildByID(list_barang, newdata);
 					if (searchCargo != NULL) {
-						std::cout << "\tKode Armada\t: " << current->info.id << std::endl;
-						std::cout << "\tKode Barang\t: " << searchCargo->info.id_barang << std::endl;
-						std::cout << "\tNama Barang\t: " << searchCargo->info.nama_barang << std::endl;
-						std::cout << "\tBerat Barang\t: " << searchCargo->info.volume_barang << std::endl << std::endl;
+						cout << "\tKode Armada\t: " << current->info.id << endl;
+						cout << "\tKode Barang\t: " << searchCargo->info.id_barang << endl;
+						cout << "\tNama Barang\t: " << searchCargo->info.nama_barang << endl;
+						cout << "\tBerat Barang\t: " << searchCargo->info.volume_barang << endl << endl;
 					}
-					else std::cout << newdata.id_barang << " Tidak ditemukan!!" << std::endl;
+					else cout << newdata.id_barang << " Tidak ditemukan!!" << endl;
 				}
 				current = current->next;
 			}
-			std::cout << "==================== EndSearch ====================" << std::endl;
+			cout << "==================== EndSearch ====================" << endl;
 
 		}
 		break;
 	case 2:
 		if (Larmada != NULL) {
-			std::cout << "=================== List Cargo! ===================" << std::endl << std::endl;
+			cout << "=================== List Cargo! ===================" << endl << endl;
 			show_list = Larmada;
 			while (show_list != NULL) {
 				show_child = show_list->cargo;
-				std::cout << " > Kode Armada : " << show_list->info.id << " [" << show_list->info.capacity << " / "
-					<< show_list->info.max_capacity << "]KG" << std::endl;
+				cout << " > Kode Armada : " << show_list->info.id << " [" << show_list->info.capacity << " / "
+					<< show_list->info.max_capacity << "]KG" << endl;
 				while (show_child != NULL) {
-					std::cout << "\tNama Armada : " << show_child->info.nama_barang << std::endl;
+					cout << "\tNama Armada : " << show_child->info.nama_barang << endl;
 					show_child = show_child->next;
 				}
 				show_list = show_list->next;
 			}
-			std::cout << "==================== End List! ====================" << std::endl;
+			cout << "==================== End List! ====================" << endl;
 
 
 			current = Larmada;
-			std::cout << " Search Nama Barang : ";
-			std::cin >> newdata.nama_barang;
+			cout << " Search Nama Barang : ";
+			cin >> newdata.nama_barang;
 
-			std::cout << "================== Search Cargo ==================" << std::endl << std::endl;
+			cout << "================== Search Cargo ==================" << endl << endl;
 			while (current != NULL) {
 				list_barang = current->cargo;
-				std::cout << "\tKode Armada\t: " << current->info.id << std::endl;
+				cout << "\tKode Armada\t: " << current->info.id << endl;
 				if (list_barang != NULL) {
 					while (list_barang != NULL) {
 						if (list_barang->info.nama_barang == newdata.nama_barang) {
-							std::cout << "\tKode Barang\t: " << list_barang->info.id_barang << std::endl;
-							std::cout << "\tNama Barang\t: " << list_barang->info.nama_barang << std::endl;
-							std::cout << "\tBerat Barang\t: " << list_barang->info.volume_barang << std::endl << std::endl;
+							cout << "\tKode Barang\t: " << list_barang->info.id_barang << endl;
+							cout << "\tNama Barang\t: " << list_barang->info.nama_barang << endl;
+							cout << "\tBerat Barang\t: " << list_barang->info.volume_barang << endl << endl;
 						}
 						list_barang = list_barang->next;
 					}
 				}
-				else std::cout << newdata.id_barang << "\tTidak ditemukan!!" << std::endl << std::endl;
+				else cout << newdata.id_barang << "\tTidak ditemukan!!" << endl << endl;
 				current = current->next;
 			}
-			std::cout << "==================== EndSearch ====================" << std::endl;
+			cout << "==================== EndSearch ====================" << endl;
 		}
 		break;
 	}
