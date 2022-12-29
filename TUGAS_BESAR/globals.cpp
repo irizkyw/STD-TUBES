@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Armada
 void mahasiswa() {
 	system("cls");
 	vector<string> mahasiswa = {
@@ -58,7 +59,6 @@ void menu_armada() {
 	gotoxy(1, menu.size() + 4);
 	puts("====================================================");
 }
-
 void addArmada(adrArmada& armada) {
 	adrArmada alloc;
 	int total, done; int i = 1; bool dup = false;
@@ -233,7 +233,7 @@ void findAndShow(adrArmada Larmada) {
 	}
 }
 
-// Cargo , Mahen
+// Cargo
 void menu_cargo() {
 	system("cls");
 	vector<string> menu = {
@@ -347,7 +347,6 @@ void deleteByIdChild(adrArmada& armada) {
 		else cout << "Armada tidak ditemukan dengan ID : " << id_armada.id << endl;
 	}
 }
-
 void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
 	adrArmada current, show_list;
 	adrCargo list_barang, searchCargo, show_child;
@@ -440,7 +439,6 @@ void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
 		break;
 	}
 }
-
 void dummy(adrArmada& Larmada) {
 	Armada data;
 	data.id = "A001"; data.nama_armada = "BINEKA"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 1; data.bulan = 1; data.tahun = 2020; data.jadwal = "01/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
