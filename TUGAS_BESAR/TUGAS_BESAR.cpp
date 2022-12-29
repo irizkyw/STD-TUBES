@@ -4,8 +4,6 @@
 
 using namespace std;
 
-
-
 int main()
 {
 	adrArmada armada;
@@ -17,6 +15,7 @@ int main()
 	int kategori = -1; int menu = -1; bool stat = false; int pause;
 	mahasiswa();
 	if (cin.get())system("cls");
+	cin.clear();
 
 	dummy(armada);
 	while (kategori != 0 || menu != 0) {
@@ -79,7 +78,7 @@ int main()
 				cin >> pause;
 				break;
 			case 2:
-				deleteByIdChild(cargo);
+				deleteByIdChild(armada);
 				cin >> pause;
 				puts("\n\nHapus Data Selesai [Press 0 - 9] Untuk kembali ke menu");
 				break;
@@ -101,4 +100,3 @@ int main()
 		}
 	}
 }
-
