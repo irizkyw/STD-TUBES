@@ -321,7 +321,7 @@ void deleteByIdChild(adrArmada& armada) {
 
 		std::cout << "\nCari Armada dengan Kode : ";
 		std::cin >> id_armada.id;
-		if (newdata.id_barang == "-1") return;
+		if (id_armada.id == "-1") return;
 
 
 		adrCargo del = NULL; adrCargo searchCargo = NULL;
