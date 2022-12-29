@@ -83,6 +83,7 @@ adrCargo findChildByID(adrCargo Lcargo, Cargo search) {
 	}
 	else return NULL;
 }
+<<<<<<< HEAD
 adrCargo findChildByName(adrCargo Lcargo, Cargo search) {
 	adrCargo current;
 	if (Lcargo != NULL) {
@@ -97,6 +98,13 @@ void showAllCargo(adrCargo Lcargo) {
 	while (child != NULL) {
 		std::cout << " \tNama Barang\t: " << "[" << child->info.id_barang << "]" << child->info.nama_barang << std::endl;
 		std::cout << " \tVolume\t\t: " << child->info.volume_barang << std::endl << std::endl;;
+=======
+void showAllCargo(adrCargo Lcargo) {
+	adrCargo child = Lcargo;
+	while (child != NULL) {
+		std::cout << " \tNama Barang\t: " << child->info.nama_barang << "[" << child->info.id_barang << "]" << std::endl;
+		std::cout << " \tVolume\t: " << child->info.volume_barang << std::endl << std::endl;;
+>>>>>>> 89dfd5ab2d3f4ab4bf378521324ce8ac0dcd5d98
 		child = child->next;
 	}
 }
