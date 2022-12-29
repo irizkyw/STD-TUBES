@@ -327,9 +327,7 @@ void deleteByIdChild(adrArmada& armada) {
 
 
 		adrCargo del = NULL; adrCargo searchCargo = NULL;
-		current = armada;
 		Search_Armada = findArmadaByID(armada, id_armada);
-
 		if (Search_Armada != NULL) {
 
 			cout << "\nHapus data dengan Kode : ";
@@ -340,7 +338,7 @@ void deleteByIdChild(adrArmada& armada) {
 			if (searchCargo != NULL) {
 				deleteAfterChild(Search_Armada->cargo, searchCargo, del);
 				if (del != NULL) {
-					current->info.capacity -= del->info.volume_barang;
+					Search_Armada->info.capacity -= del->info.volume_barang;
 					cout << "Data Berhasil di hapus dengan kode barang " << del->info.id_barang << endl;
 				}
 			}
