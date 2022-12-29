@@ -303,7 +303,8 @@ void addCargo(adrCargo& cargo, adrArmada armada) {
 }
 void deleteByIdChild(adrArmada& armada) {
 	Cargo newdata; int pause = 0;
-	adrArmada current;
+	adrArmada current,Search_Armada;
+	Armada id_armada;
 	if (armada != NULL) {
 		current = armada;
 		std::cout << "================== Search Cargo ==================" << std::endl << std::endl;
@@ -317,26 +318,32 @@ void deleteByIdChild(adrArmada& armada) {
 		std::cout << "==================== EndSearch ====================" << std::endl;
 
 		std::cout << " * -1 Untuk Kembali\n";
-		std::cout << "\nHapus data dengan Kode :";
-		std::cin >> newdata.id_barang;
+
+		std::cout << "\nCari Armada dengan Kode : ";
+		std::cin >> id_armada.id;
 		if (newdata.id_barang == "-1") return;
+
 
 		adrCargo del = NULL; adrCargo searchCargo = NULL;
 		current = armada;
-		while (current != NULL) {
-			searchCargo = findChildByID(current->cargo, newdata);
+		Search_Armada = findArmadaByID(armada, id_armada);
+
+		if (Search_Armada != NULL) {
+
+			std::cout << "\nHapus data dengan Kode : ";
+			std::cin >> newdata.id_barang;
+			if (newdata.id_barang == "-1") return;
+
+			searchCargo = findChildByID(Search_Armada->cargo, newdata);
 			if (searchCargo != NULL) {
-				deleteAfterChild(current->cargo, searchCargo, del);
+				deleteAfterChild(Search_Armada->cargo, searchCargo, del);
 				if (del != NULL) {
 					current->info.capacity -= del->info.volume_barang;
 					std::cout << "Data Berhasil di hapus dengan kode barang " << del->info.id_barang << std::endl;
 				}
-			}
-			current = current->next;
+			}else std::cout << "Data tidak ditemukan dengan ID : " << newdata.id_barang << std::endl;
 		}
-		if (del == NULL) {
-			std::cout << "Data tidak ditemukan dengan ID : " << newdata.id_barang << std::endl;
-		}
+		else std::cout << "Armada tidak ditemukan dengan ID : " << id_armada.id << std::endl;
 	}
 }
 

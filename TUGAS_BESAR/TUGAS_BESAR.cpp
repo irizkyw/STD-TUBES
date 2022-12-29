@@ -78,11 +78,7 @@ int main()
 				cin >> pause;
 				break;
 			case 2:
-<<<<<<< HEAD
 				deleteByIdChild(armada);
-=======
-				deleteByIdChild(armada,cargo);
->>>>>>> 89dfd5ab2d3f4ab4bf378521324ce8ac0dcd5d98
 				cin >> pause;
 				puts("\n\nHapus Data Selesai [Press 0 - 9] Untuk kembali ke menu");
 				break;

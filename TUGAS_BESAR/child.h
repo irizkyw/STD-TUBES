@@ -20,10 +20,6 @@ void deleteLastChild(adrCargo& Lcargo, adrCargo& del);
 void deleteAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo& del);
 
 adrCargo findChildByID(adrCargo Lcargo, Cargo search);
-<<<<<<< HEAD
 adrCargo findChildByName(adrCargo Lcargo, Cargo search);
 void showAllCargo(adrCargo LCargo, bool stat);
 void showAllCargo(adrCargo Lcargo);
-=======
-void showAllCargo(adrCargo LCargo);
->>>>>>> 89dfd5ab2d3f4ab4bf378521324ce8ac0dcd5d98
