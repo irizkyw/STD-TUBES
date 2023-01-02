@@ -56,6 +56,11 @@ int main()
 				puts("\n\nCari Data Selesai [Press 0 - 9] Untuk kembali ke menu");
 				cin >> pause;
 				break;
+			case 6:
+				printTotalParentChild(armada);
+				puts("\n\nCari Data Selesai [Press 0 - 9] Untuk kembali ke menu");
+				cin >> pause;
+				break;
 			case 9:
 				stat = false;
 				break;

@@ -49,14 +49,14 @@ void menu_armada() {
 	gotoxy(1, 1);
 	puts("=================== PILIH MENU! ===================");
 	for (int i = 0; i < menu.size(); ++i) {
-		gotoxy(3, 2 + i);
+		gotoxy(3, 3 + i);
 		cout << i + 1 << "> " << menu[i];
 	}
-	gotoxy(3, menu.size() + 2);
+	gotoxy(3, menu.size() + 4);
 	cout << 9 << "> " << "Kembali Ke Kategori";
-	gotoxy(3, menu.size() + 3);
+	gotoxy(3, menu.size() + 5);
 	cout << 0 << "> " << "Exit";
-	gotoxy(1, menu.size() + 4);
+	gotoxy(1, menu.size() + 6);
 	puts("====================================================");
 }
 void addArmada(adrArmada& armada) {
@@ -437,6 +437,29 @@ void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
 			cout << "==================== EndSearch ====================" << endl;
 		}
 		break;
+	}
+}
+
+void printTotalParentChild(adrArmada Larmada) {
+	adrArmada current;
+	adrCargo child;
+	int totalParent = 0; int totalChild;
+
+	if (Larmada != NULL) {
+		current = Larmada;
+		while (current != NULL) {
+			child = current->cargo;
+			totalChild = 0;
+			while (child != NULL) {
+				totalChild++;
+				child = child->next;
+			}
+			cout << "Armada " << current->info.id
+				<< ": " << totalChild << " barang" << endl;
+			totalParent++;
+			current = current->next;
+		}
+		cout << "Total Armada : " << totalParent << endl;
 	}
 }
 void dummy(adrArmada& Larmada) {
