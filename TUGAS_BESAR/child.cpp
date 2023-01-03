@@ -66,7 +66,7 @@ void deleteAfterChild(adrCargo& Lcargo, adrCargo Prec, adrCargo& del) {
 		else if (Prec == Lcargo) deleteFirstChild(Lcargo,del);
 		else {
 			current = Lcargo;
-			while (current != Prec) current = current->next;
+			while (current->next != Prec) current = current->next;
 			del = current->next;
 			current->next = del->next;
 			del->next = NULL;
@@ -78,11 +78,13 @@ adrCargo findChildByID(adrCargo Lcargo, Cargo search) {
 	adrCargo current;
 	if (Lcargo != NULL) {
 		current = Lcargo;
+		if (current->info.id_barang == search.id_barang) return current;
 		while (current != NULL && current->info.id_barang != search.id_barang) current = current->next;
 		return current;
 	}
 	else return NULL;
 }
+
 adrCargo findChildByName(adrCargo Lcargo, Cargo search) {
 	adrCargo current;
 	if (Lcargo != NULL) {

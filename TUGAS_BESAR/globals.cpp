@@ -335,6 +335,7 @@ void deleteByIdChild(adrArmada& armada) {
 			if (newdata.id_barang == "-1") return;
 
 			searchCargo = findChildByID(Search_Armada->cargo, newdata);
+			cout << "Search Cargo : " << searchCargo->info.id_barang << endl;
 			if (searchCargo != NULL) {
 				deleteAfterChild(Search_Armada->cargo, searchCargo, del);
 				if (del != NULL) {

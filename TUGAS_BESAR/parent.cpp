@@ -67,9 +67,10 @@ void deleteAfter(adrArmada& Larmada, adrArmada Prec, adrArmada& del) {
 		else if (Prec == Larmada) deleteFirst(Larmada, del);
 		else {
 			current = Larmada;
-			while (current != Prec) current = current->next;
+			while (current->next != Prec) current = current->next;
 			del = current->next;
 			current->next = del->next;
+
 			del->next = NULL;
 			del->cargo = NULL; 
 		}
@@ -80,6 +81,7 @@ adrArmada findArmadaByID(adrArmada Larmada, Armada search) {
 	adrArmada current;
 	if (Larmada != NULL) {
 		current = Larmada;
+		if (current->info.id == search.id) return current;
 		while (current != NULL && current->info.id != search.id) current = current->next;
 		return current;
 	}
