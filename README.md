@@ -1,6 +1,7 @@
 # Tugas Besar Struktur Data
 
 Tugas ini adalah Tugas akhir matakuliah Struktur data dengan materi Multi Linked List dengan bentuk (relasi 1-N dan M-N) dengan tema Cargo.
+
 ![36650940-b11585f4-1ad8-11e8-9d76-7453248717b0](https://user-images.githubusercontent.com/78690451/211130891-8551c659-f0ef-4efe-9adf-e2561e6f6f04.png)
 
 ## Usage
