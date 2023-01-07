@@ -62,7 +62,7 @@ void menu_armada() {
 void addArmada(adrArmada& armada) {
 	adrArmada alloc;
 	int total, done; int i = 1; bool dup = false;
-	gotoxy(0, menu.size() + 5);
+	gotoxy(0, menu.size() + 9);
 	cout << "Masukan Jumlah Data : ";
 	cin >> total;
 	if (total >= 1) {
@@ -455,12 +455,12 @@ void printTotalParentChild(adrArmada Larmada) {
 				totalChild++;
 				child = child->next;
 			}
-			cout << "Armada " << current->info.id
+			cout << "\t>Armada " << current->info.id
 				<< ": " << totalChild << " barang" << endl;
 			totalParent++;
 			current = current->next;
 		}
-		cout << "Total Armada : " << totalParent << endl;
+		cout << "\n\t>Total Armada : " << totalParent << endl;
 	}
 }
 void dummy(adrArmada& Larmada) {
