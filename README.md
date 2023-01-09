@@ -13,7 +13,7 @@ Tugas ini adalah Tugas akhir matakuliah Struktur data dengan materi Multi Linked
 ## Without Compile
 - [```https://github.com/irizkyw/STD-TUBES/releases/tag/v1.0```](https://github.com/irizkyw/STD-TUBES/releases/tag/v1.0)
 
-## Contributing[KELOMPOK]
+## Contributing - KELOMPOK Debugger
 Dalam Projek ini yang berkontribusi adalah
 ```
 Bagian Parent(Armada)     :  Ichwan Rizky Wahyudin - 1301213434

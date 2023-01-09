@@ -515,10 +515,10 @@ void replaceChild(adrArmada Larmada,adrCargo Lcargo) {
 }
 void dummy(adrArmada& Larmada) {
 	Armada data;
-	data.id = "A001"; data.nama_armada = "BINEKA"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 1; data.bulan = 1; data.tahun = 2020; data.jadwal = "01/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
+	data.id = "A001"; data.nama_armada = "CDE"; data.jenis_armada = "Truck"; data.asal = "Bandung"; data.tujuan = "Jakarta"; data.tanggal = 9; data.bulan = 1; data.tahun = 2023; data.jadwal = "09/01/2023"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
 	insertLast(Larmada, allocArmada(data));
-	data.id = "A002"; data.nama_armada = "Armada2"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 2; data.bulan = 1; data.tahun = 2020; data.jadwal = "02/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
+	data.id = "A002"; data.nama_armada = "GrandMax"; data.jenis_armada = "Truck"; data.asal = "Bandung"; data.tujuan = "Bali"; data.tanggal = 12; data.bulan = 1; data.tahun = 2023; data.jadwal = "12/01/2023"; data.waktu = "12:00"; data.max_capacity = 1000; data.capacity = 0;
 	insertLast(Larmada, allocArmada(data));
-	data.id = "A003"; data.nama_armada = "Armada3"; data.jenis_armada = "Truck"; data.asal = "Jakarta"; data.tujuan = "Bandung"; data.tanggal = 3; data.bulan = 1; data.tahun = 2020; data.jadwal = "03/01/2020"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
+	data.id = "A003"; data.nama_armada = "Fuso"; data.jenis_armada = "Truck"; data.asal = "Bandung"; data.tujuan = "Bogor"; data.tanggal = 13; data.bulan = 1; data.tahun = 2023; data.jadwal = "13/01/2023"; data.waktu = "13:00"; data.max_capacity = 1000; data.capacity = 0;
 	insertLast(Larmada, allocArmada(data));
 }
