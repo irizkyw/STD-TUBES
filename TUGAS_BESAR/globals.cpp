@@ -418,16 +418,16 @@ void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
 			cout << " Search Nama Barang : ";
 			cin >> newdata.nama_barang;
 
-			cout << "================== Search Cargo ==================" << endl << endl;
+			cout << "================== Hasil Cargo ==================" << endl << endl;
 			while (current != NULL) {
 				list_barang = current->cargo;
-				cout << "\tKode Armada\t: " << current->info.id << endl;
 				if (list_barang != NULL) {
 					while (list_barang != NULL) {
 						if (list_barang->info.nama_barang == newdata.nama_barang) {
-							cout << "\tKode Barang\t: " << list_barang->info.id_barang << endl;
-							cout << "\tNama Barang\t: " << list_barang->info.nama_barang << endl;
-							cout << "\tBerat Barang\t: " << list_barang->info.volume_barang << endl << endl;
+							cout << "\tKode Armada\t: " << current->info.id << endl;
+							cout << "\t > Kode Barang\t: " << list_barang->info.id_barang << endl;
+							cout << "\t   Nama Barang\t: " << list_barang->info.nama_barang << endl;
+							cout << "\t   Berat Barang\t: " << list_barang->info.volume_barang << endl << endl;
 						}
 						list_barang = list_barang->next;
 					}
