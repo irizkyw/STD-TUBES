@@ -237,7 +237,7 @@ void findAndShow(adrArmada Larmada) {
 void menu_cargo() {
 	system("cls");
 	vector<string> menu = {
-		{"Tambah Cargo"}, {"Hapus Cargo By Kode"}, {"Cari Cargo dan Tampilkan Spesifikasi Barangnya"}
+		{"Tambah Cargo"}, {"Hapus Cargo By Kode"}, {"Cari Cargo dan Tampilkan Spesifikasi Barangnya"} , {"Ganti data barang"}
 	};
 
 	gotoxy(1, 1);
@@ -440,7 +440,6 @@ void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
 		break;
 	}
 }
-
 void printTotalParentChild(adrArmada Larmada) {
 	adrArmada current;
 	adrCargo child;
@@ -461,6 +460,57 @@ void printTotalParentChild(adrArmada Larmada) {
 			current = current->next;
 		}
 		cout << "\n\t>Total Armada : " << totalParent << endl;
+	}
+}
+void replaceChild(adrArmada Larmada,adrCargo Lcargo) {
+	Armada armada;
+	adrArmada current;
+	
+	Cargo cargo, n_cargo;
+	char konfirmasi;
+	if (Larmada != NULL) {
+		current = Larmada;
+		cout << "================== Search Cargo ==================" << endl << endl;
+		while (current != NULL) {
+			cout << " > Kode Armada : " << current->info.id << " [" << current->info.capacity << " / " << current->info.max_capacity << "]KG" << endl;
+			if (current->cargo == NULL)
+				cout << "\tList barang kosong !!" << endl;
+			showAllCargo(current->cargo);
+			current = current->next;
+		}
+		cout << "==================== EndSearch ====================" << endl;
+
+		cout << "Cari Kode Armada : ";
+		cin >> armada.id;
+		
+		adrArmada find_parent = findArmadaByID(Larmada, armada);
+		if (find_parent != NULL) {
+			cout << "Pilih kode barang yang ingin dirubah : ";
+			cin >> cargo.id_barang;
+			adrCargo find_child = findChildByID(find_parent->cargo, cargo);
+			cout << find_child->info.id_barang << endl;
+			if (find_child != NULL) {
+				cout << "Masukan databaru untuk di ganti" << endl;
+				cout << "Nama Barang : ";
+				n_cargo.id_barang = find_child->info.id_barang; // id barang tidak berubah;
+				cin >> n_cargo.nama_barang;
+				cout << "Volume Barang : ";
+				cin >> n_cargo.volume_barang;
+
+				cout << "Apakah kode id barang" << find_child->info.id_barang << "di ganti? [Y/N] : ";
+				cin >> konfirmasi;
+				if (konfirmasi == 'Y') {
+					find_parent->info.capacity -= find_child->info.volume_barang;
+					find_child->info = n_cargo;
+					find_parent->info.capacity += n_cargo.volume_barang;
+				}
+				else cout << "Data tidak berhasil di rubah" << endl;
+			}
+			else cout << "Kode barang tidak ada!!" << endl;
+
+		}
+		else cout << "Aramda tidak di temukan!!" << endl;
+
 	}
 }
 void dummy(adrArmada& Larmada) {

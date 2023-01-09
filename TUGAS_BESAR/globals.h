@@ -38,3 +38,4 @@ void findAndShowChild(adrCargo Lcargo, adrArmada Larmada);
 
 void dummy(adrArmada& Larmada);
 void printTotalParentChild(adrArmada Larmada);
+void replaceChild(adrArmada Larmada, adrCargo Lcargo);
