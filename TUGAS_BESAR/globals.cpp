@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// Armada
+// Armada mengembangkan program fungsi primitive yang  tersedia
 void mahasiswa() {
 	system("cls");
 	vector<string> mahasiswa = {
@@ -389,7 +389,6 @@ void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
 						cout << "\tNama Barang\t: " << searchCargo->info.nama_barang << endl;
 						cout << "\tBerat Barang\t: " << searchCargo->info.volume_barang << endl << endl;
 					}
-					else cout << newdata.id_barang << " Tidak ditemukan!!" << endl;
 				}
 				current = current->next;
 			}
@@ -424,8 +423,8 @@ void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
 				if (list_barang != NULL) {
 					while (list_barang != NULL) {
 						if (list_barang->info.nama_barang == newdata.nama_barang) {
-							cout << "\tKode Armada\t: " << current->info.id << endl;
-							cout << "\t > Kode Barang\t: " << list_barang->info.id_barang << endl;
+							cout << "\t > Kode Armada\t: " << current->info.id << endl;
+							cout << "\t   Kode Barang\t: " << list_barang->info.id_barang << endl;
 							cout << "\t   Nama Barang\t: " << list_barang->info.nama_barang << endl;
 							cout << "\t   Berat Barang\t: " << list_barang->info.volume_barang << endl << endl;
 						}
