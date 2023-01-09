@@ -432,11 +432,11 @@ void findAndShowChild(adrCargo Lcargo, adrArmada Larmada) {
 						list_barang = list_barang->next;
 					}
 				}
-				else cout << newdata.id_barang << "\tTidak ditemukan!!" << endl << endl;
 				current = current->next;
 			}
 			cout << "==================== EndSearch ====================" << endl;
 		}
+		else cout << "\tArmada Kosong!!" << endl << endl;
 		break;
 	}
 }
@@ -497,7 +497,7 @@ void replaceChild(adrArmada Larmada,adrCargo Lcargo) {
 				cout << "Volume Barang : ";
 				cin >> n_cargo.volume_barang;
 
-				cout << "Apakah kode id barang" << find_child->info.id_barang << "di ganti? [Y/N] : ";
+				cout << "Apakah kode id barang " << find_child->info.id_barang << " di ganti? [Y/N] : ";
 				cin >> konfirmasi;
 				if (konfirmasi == 'Y') {
 					find_parent->info.capacity -= find_child->info.volume_barang;
@@ -517,8 +517,10 @@ void dummy(adrArmada& Larmada) {
 	Armada data;
 	data.id = "A001"; data.nama_armada = "CDE"; data.jenis_armada = "Truck"; data.asal = "Bandung"; data.tujuan = "Jakarta"; data.tanggal = 9; data.bulan = 1; data.tahun = 2023; data.jadwal = "09/01/2023"; data.waktu = "08:00"; data.max_capacity = 1000; data.capacity = 0;
 	insertLast(Larmada, allocArmada(data));
+	
 	data.id = "A002"; data.nama_armada = "GrandMax"; data.jenis_armada = "Truck"; data.asal = "Bandung"; data.tujuan = "Bali"; data.tanggal = 12; data.bulan = 1; data.tahun = 2023; data.jadwal = "12/01/2023"; data.waktu = "12:00"; data.max_capacity = 1000; data.capacity = 0;
 	insertLast(Larmada, allocArmada(data));
+	
 	data.id = "A003"; data.nama_armada = "Fuso"; data.jenis_armada = "Truck"; data.asal = "Bandung"; data.tujuan = "Bogor"; data.tanggal = 13; data.bulan = 1; data.tahun = 2023; data.jadwal = "13/01/2023"; data.waktu = "13:00"; data.max_capacity = 1000; data.capacity = 0;
 	insertLast(Larmada, allocArmada(data));
 }
